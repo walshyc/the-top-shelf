@@ -1,0 +1,56 @@
+{% extends  'base.html' %}
+{% block content %}
+<div class="slider">
+    <ul class="slides">
+        <li>
+            <img src="https://www.standard.co.uk/s3fs-public/thumbnails/image/2016/09/30/10/cocktails.jpg">
+            <!-- random image -->
+            <div class="caption center-align">
+                <h3>Gin & Tonic</h3>
+                <h5 class="light grey-text text-lighten-3">Tasty & Refreshing</h5>
+            </div>
+        </li>
+        <li>
+            <img src="https://ddj089q3eoqys.cloudfront.net/wp-content/uploads/2018/11/drinkhero-1400x787.jpg">
+            <!-- random image -->
+            <div class="caption left-align">
+                <h3>Whiskey & Ginger</h3>
+                <h5 class="light grey-text text-lighten-3">Just perfect</h5>
+            </div>
+        </li>
+        <li>
+            <img src="https://static.businessinsider.com/image/5c2e45e60df1762931085eb0.jpg"> <!-- random image -->
+            <div class="caption right-align">
+                <h3>Old Fashioned</h3>
+                <h5 class="light grey-text text-lighten-3">For old times sake!</h5>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+        {% for categories in categories %}
+    <div class="col s12 m4">
+        <div class="card cyan">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="https://ddj089q3eoqys.cloudfront.net/wp-content/uploads/2018/11/drinkhero-1400x787.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator black-text">{{categories.category_name.upper()}}<i class="material-icons right">
+                keyboard_arrow_up</i></span>
+              <p><a class="black-text" href="#">View</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">{{categories.category_name.upper()}} Cocktails<i class="material-icons right">close</i></span>
+              <p>Click here to view some fabolous Gin inspired cocktails to refresh your day.</p>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+</div>
+<!-- {% for categories in categories %}
+        <h4>{{categories.category_name.upper()}}</h4><br>
+        <h5>{{categories._id}}</h5>
+        <br>
+    {% endfor %} -->
+{% endblock %}

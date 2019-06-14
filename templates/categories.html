@@ -1,7 +1,7 @@
 {% extends  'base.html' %}
 {% block content %}
     {% for categories in categories %}
-        <h4>{{categories.category_name}}</h4><br>
+        <h4>{{categories.category_name.upper()}}</h4><br>
         <h5>{{categories._id}}</h5>
         <br>
     {% endfor %}

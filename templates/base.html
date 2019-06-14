@@ -19,10 +19,11 @@
 <body>
     <nav>
         <div class="nav-wrapper cyan ">
-            <a href="#" class="brand-logo black-text">The Top Shelf</a>
+            <a href="/" class="brand-logo black-text">The Top Shelf</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down black-text">
-                <li><a class="black-text" href="#"><i class="material-icons left">local_bar</i>View Cocktails</a></li>
+                <li><a class="black-text" href="/categories"><i class="material-icons left">local_bar</i>View
+                        Cocktails</a></li>
                 <li><a class="black-text" href="#"><i class="material-icons left">note_add</i>Add a Cocktail</a></li>
                 <li><a class="black-text" href="#"><i class="material-icons left">search</i>Find a Cocktail</a></li>
             </ul>
@@ -30,8 +31,8 @@
     </nav>
 
     <ul class="sidenav cyan black-text" id="mobile-demo">
-        <li><a href="#" class="brand-logo black-text">The Top Shelf</a></li>
-        <li><a class="black-text" href="#"><i class="material-icons left">local_bar</i>View Cocktails</a></li>
+        <li><a href="/" class="brand-logo black-text">The Top Shelf</a></li>
+        <li><a class="black-text" href="/categories"><i class="material-icons left">local_bar</i>View Cocktails</a></li>
         <li><a class="black-text" href="#"><i class="material-icons left">note_add</i>Add a Cocktail</a></li>
         <li><a class="black-text" href="#"><i class="material-icons left">search</i>Find a Cocktail</a></li>
     </ul>
@@ -48,7 +49,14 @@
     <script>
         $(document).ready(function () {
             $('.sidenav').sidenav();
+            $('.slider').slider({
+                full_width: true,
+                height: 600, // default - height : 400
+                interval: 3000 // default - interval: 6000
+            });
+
         });
+
     </script>
 </body>
 
