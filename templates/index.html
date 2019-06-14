@@ -1,5 +1,5 @@
 {% extends  'base.html' %}
-{% block content %}
+{% block slider %}
 <div class="slider">
     <ul class="slides">
         <li>
@@ -27,25 +27,29 @@
         </li>
     </ul>
 </div>
-
+{% endblock %}
+{% block content %}
 <div class="row">
-        {% for categories in categories %}
+    {% for categories in categories %}
     <div class="col s12 m4">
-        <div class="card cyan">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="https://ddj089q3eoqys.cloudfront.net/wp-content/uploads/2018/11/drinkhero-1400x787.jpg">
+            <div class="card cyan">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{{categories.category_image}}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator black-text center-align">{{categories.category_name.upper()}}<i
+                            class="material-icons right">
+                            keyboard_arrow_up</i></span>
+                    
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">{{categories.category_name.capitalize()}} Cocktails<i
+                            class="material-icons right">close</i></span>
+                    <h6>{{categories.category_tagline.capitalize()}}</h6>
+                    <a class="black-text cyan waves-effect waves-light btn flow-text">View all {{categories.category_name.capitalize()}} cocktails</a>
+                </div>
             </div>
-            <div class="card-content">
-              <span class="card-title activator black-text">{{categories.category_name.upper()}}<i class="material-icons right">
-                keyboard_arrow_up</i></span>
-              <p><a class="black-text" href="#">View</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">{{categories.category_name.upper()}} Cocktails<i class="material-icons right">close</i></span>
-              <p>Click here to view some fabolous Gin inspired cocktails to refresh your day.</p>
-            </div>
-          </div>
-    </div>
+        </div>
     {% endfor %}
 </div>
 <!-- {% for categories in categories %}
