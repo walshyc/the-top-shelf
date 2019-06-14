@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Playfair Font -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900&display=swap" rel="stylesheet">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Document</title>
 </head>
 
@@ -19,30 +22,33 @@
             <a href="#" class="brand-logo black-text">The Top Shelf</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down black-text">
-                <li><a href="#">View Cocktails</a></li>
-                <li><a href="#">Add a Cocktail</a></li>
-                <li><a href="#">Search</a></li>
+                <li><a class="black-text" href="#"><i class="material-icons left">local_bar</i>View Cocktails</a></li>
+                <li><a class="black-text" href="#"><i class="material-icons left">note_add</i>Add a Cocktail</a></li>
+                <li><a class="black-text" href="#"><i class="material-icons left">search</i>Find a Cocktail</a></li>
             </ul>
         </div>
     </nav>
 
     <ul class="sidenav cyan black-text" id="mobile-demo">
-            <li><a href="#">View Cocktails</a></li>
-            <li><a href="#">Add a Cocktail</a></li>
-            <li><a href="#">Search</a></li>
+        <li><a href="#" class="brand-logo black-text">The Top Shelf</a></li>
+        <li><a class="black-text" href="#"><i class="material-icons left">local_bar</i>View Cocktails</a></li>
+        <li><a class="black-text" href="#"><i class="material-icons left">note_add</i>Add a Cocktail</a></li>
+        <li><a class="black-text" href="#"><i class="material-icons left">search</i>Find a Cocktail</a></li>
     </ul>
+    <div class="container">
+        {% block content %}
 
-    {% block content %}
 
-
-    {% endblock %}
+        {% endblock %}
+    </div>
+    <!-- jQuery  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var elems = document.querySelectorAll('.sidenav');
-                var instances = M.Sidenav.init(elems, options);
-              });
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
     </script>
 </body>
 
