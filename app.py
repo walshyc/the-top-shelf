@@ -18,8 +18,8 @@ def home():
 def categories():
     return render_template('categories.html', categories=mongo.db.categories.find())
 
-@app.route('/categories/<category_name>')
-def category_name(category_name):
+# @app.route('/categories/<category_name>')
+# def category_name(category_name):
 
 
 if __name__ == "__main__":
