@@ -18,8 +18,13 @@ def home():
 def categories():
     return render_template('categories.html', categories=mongo.db.categories.find())
 
-# @app.route('/categories/<category_name>')
-# def category_name(category_name):
+@app.route('/categories/<category_id>')
+def category_id(category_id):
+    the_category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    all_cocktails = mongo.db.cocktails.find()
+    
+    return render_template("drink.html", category = the_category, cocktails = mongo.db.cocktails.find())
+
 
 
 if __name__ == "__main__":

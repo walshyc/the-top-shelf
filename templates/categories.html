@@ -19,7 +19,7 @@
                         <span class="card-title grey-text text-darken-4">{{categories.category_name.capitalize()}} Cocktails<i
                                 class="material-icons right">close</i></span>
                         <h6>{{categories.category_tagline.capitalize()}}</h6>
-                        <a class="black-text cyan waves-effect waves-light btn flow-text">View all {{categories.category_name.capitalize()}} cocktails</a>
+                        <a href="{{url_for('category_id',category_id=categories._id)}}"  class="black-text cyan waves-effect waves-light btn flow-text">View all {{categories.category_name.capitalize()}} cocktails</a>
                     </div>
                 </div>
             </div>
