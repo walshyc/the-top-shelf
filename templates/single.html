@@ -22,24 +22,32 @@
 
 {% block content %}
 <div class="row">
+    <div class="col s12">
+        <h1>{{cocktail.cocktail_name.title()}}</h1>
+        <h4>{{cocktail.cocktail_tagline}}</h4>
+    </div>
+</div>
 
 
-    <div class="col s12 m6 l4">
-        <div class="card medium">
-            <div class="card-image">
-                <img src="{{cocktail.image}}">
-                
-            </div>
-            <div class="card-content">
-                <span class="card-title cyan-text text-darken-2 card-link-text">{{cocktail.cocktail_name}}</span>
-                <p>{{cocktail.short}}</p>
-            </div>
-            <div class="card-action">
-                <a class="cyan-text text-darken-2 card-link-text" href="#">View {{cocktail.cocktail_name}}</a>
-            </div>
+<div class="row">
+    <h4>Ingredients</h4>
+    <div class="col s12">
+        <div class="card-panel cyan">
+
+            
+            <span class="black-text">
+                60ml Gin <br>
+                200ml Tonic Water <br>
+                Mint leafs <br>
+                Ice cubes <br>
+            </span>
+           
         </div>
     </div>
-    
+</div>
+
+<div class="row">
+    <h4>Method</h4>
 </div>
 
 {% endblock %}
