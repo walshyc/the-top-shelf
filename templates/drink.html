@@ -34,7 +34,7 @@
                 <p>{{cocktails.short}}</p>
             </div>
             <div class="card-action">
-                <a class="cyan-text text-darken-2 card-link-text" href="#">View {{cocktails.cocktail_name}}</a>
+                <a class="cyan-text text-darken-2 card-link-text" href="{{url_for('cocktail_id', cocktail_id= cocktails._id)}}">View {{cocktails.cocktail_name}}</a>
             </div>
         </div>
     </div>
