@@ -1,4 +1,7 @@
 {% extends  'base.html' %}
+{% block title %}
+<title>The Top Shelf - Cocktail Ideas</title>
+{% endblock %}
 {% block slider %}
 <div class="slider">
     <ul class="slides">
@@ -52,9 +55,4 @@
         </div>
     {% endfor %}
 </div>
-<!-- {% for categories in categories %}
-        <h4>{{categories.category_name.upper()}}</h4><br>
-        <h5>{{categories._id}}</h5>
-        <br>
-    {% endfor %} -->
 {% endblock %}
