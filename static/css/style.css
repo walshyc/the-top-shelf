@@ -9,6 +9,11 @@ body {
 }
 
 
+.contrast-text{
+    color: #850100!important;
+}
+
+
 /* Media Queries */
 @media screen and (min-width: 993px) {
     nav .brand-logo{
