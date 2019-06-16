@@ -5,29 +5,28 @@
 {% block slider %}
 <div class="slider">
     <ul class="slides">
+        {% for cocktails in cocktails %}
+        {% if loop.index % 2 != 0 %}
         <li>
-            <img src="https://www.standard.co.uk/s3fs-public/thumbnails/image/2016/09/30/10/cocktails.jpg">
+            <img src="{{cocktails.image}}">
             <!-- random image -->
-            <div class="caption center-align">
-                <h3>Gin & Tonic</h3>
-                <h5 class="light grey-text text-lighten-3">Tasty & Refreshing</h5>
+            <div class="caption right-align">
+                <h3>{{cocktails.cocktail_name.title()}}</h3>
+                <h5 class="light grey-text text-lighten-3">{{cocktails.short}}</h5>
             </div>
         </li>
+        {% else %}
         <li>
-            <img src="https://ddj089q3eoqys.cloudfront.net/wp-content/uploads/2018/11/drinkhero-1400x787.jpg">
+            <img src="{{cocktails.image}}">
             <!-- random image -->
             <div class="caption left-align">
-                <h3>Whiskey & Ginger</h3>
-                <h5 class="light grey-text text-lighten-3">Just perfect</h5>
+                <h3>{{cocktails.cocktail_name.title()}}</h3>
+                <h5 class="light grey-text text-lighten-3">{{cocktails.short}}</h5>
             </div>
         </li>
-        <li>
-            <img src="https://static.businessinsider.com/image/5c2e45e60df1762931085eb0.jpg"> <!-- random image -->
-            <div class="caption right-align">
-                <h3>Old Fashioned</h3>
-                <h5 class="light grey-text text-lighten-3">For old times sake!</h5>
-            </div>
-        </li>
+        {% endif %}
+        {% endfor %}
+        
     </ul>
 </div>
 {% endblock %}

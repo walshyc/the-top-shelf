@@ -12,7 +12,7 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
-    return render_template('index.html', categories=mongo.db.categories.find())
+    return render_template('index.html', categories=mongo.db.categories.find(), cocktails = mongo.db.cocktails.find())
 
 @app.route('/categories')
 def categories():
