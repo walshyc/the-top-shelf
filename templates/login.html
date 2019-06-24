@@ -32,11 +32,6 @@
 {% endblock %}
 {% block content %}
 <div class="row">
-    <div class="col s12">
-        <h6>{{message}}</h6>
-    </div>
-</div>
-<div class="row">
     {% for categories in categories %}
     <div class="col s12 m4">
             <a href="{{url_for('category_id',category_id=categories._id)}}" class="black-text  ">

@@ -1,0 +1,62 @@
+"ingredients": [{
+        "ing_name0": request.form['ing_name0'],
+        "ing_amount0": request.form['ing_amount0']
+    },
+    {
+        "ing_name1": request.form['ing_name1'],
+        "ing_amount1": request.form['ing_amount1'],
+        {
+            "ing_name2": request.form['ing_name2'],
+            "ing_amount2": request.form['ing_amount2'],
+            {
+                "ing_name3": request.form['ing_name3'],
+                "ing_amount3": request.form['ing_amount3'],
+                {
+                    "ing_name4": request.form['ing_name4'],
+                    "ing_amount4": request.form['ing_amount4'],
+                    {
+                        "ing_name5": request.form['ing_name5'],
+                        "ing_amount5": request.form['ing_amount5'],
+                        {
+                            "ing_name6": request.form['ing_name6'],
+                            "ing_amount6": request.form['ing_amount6'],
+                            {
+                                "ing_name7": request.form['ing_name7'],
+                                "ing_amount7": request.form['ing_amount7']
+                            }],
+                        "method": [{
+                                "step_num": request.form['step_num0'],
+                                "step_time": request.form['step_time0'],
+                                "step_text": request.form['method0']
+                            },
+                            {
+                                "step_num": request.form['step_num1'],
+                                "step_time": request.form['step_time1'],
+                                "step_text": request.form['method1']
+                            },
+                            {
+                                "step_num": request.form['step_num2'],
+                                "step_time": request.form['step_time2'],
+                                "step_text": request.form['method2']
+                            },
+                            {
+                                "step_num": request.form['step_num3'],
+                                "step_time": request.form['step_time3'],
+                                "step_text": request.form['method3']
+                            },
+                            {
+                                "step_num": request.form['step_num4'],
+                                "step_time": request.form['step_time4'],
+                                "step_text": request.form['method4']
+                            },
+                            {
+                                "step_num": request.form['step_num5'],
+                                "step_time": request.form['step_time5'],
+                                "step_text": request.form['method5']
+                            },
+                            {
+                                "step_num": request.form['step_num6'],
+                                "step_time": request.form['step_time6'],
+                                "step_text": request.form['method6']
+                            },
+                        ]
