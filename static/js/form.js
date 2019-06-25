@@ -24,6 +24,10 @@ $(document).ready(function () {
         e.preventDefault();
         $("#ingredients-list  > div").slice(-2).remove();
         ingredientID--;
+        if (ingredientID <= 1) {
+            $("#remove_ing").hide();
+        }
+
     });
 
 
@@ -34,10 +38,10 @@ $(document).ready(function () {
     $('#add_step').click(function (e) {
         e.preventDefault();
         $('#method-list').append(`
-    <div class="input-field col s12">
-        <input type="text" id="method` + methodID + `" name="method` + methodID + `" class="materialize-textarea">
-        <label for="method` + methodID + `">Enter step details</label>
-    </div>`);
+        <div class="input-field col s12">
+            <input type="text" id="method` + methodID + `" name="method` + methodID + `" class="materialize-textarea validate">
+            <label for="method` + methodID + `">Enter step details</label>
+        </div>`);
 
         methodID++;
 
@@ -48,8 +52,13 @@ $(document).ready(function () {
 
     $('#remove_step').click(function (e) {
         e.preventDefault();
-        $("#method-list  > div").slice(-2).remove();
+        $("#method-list  > div").slice(-1).remove();
         methodID--;
+
+        if (methodID <= 1) {
+            $("#remove_step").hide();
+        }
+
     });
 
 

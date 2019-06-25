@@ -74,7 +74,7 @@ def category_id(category_id):
 @app.route('/<cocktail_id>')
 def cocktail_id(cocktail_id):
     cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)})
-
+    
     return render_template("single.html", cocktail=cocktail)
 
 

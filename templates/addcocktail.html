@@ -16,9 +16,9 @@
                 <select id="cocktail_category" name="cocktail_base" class="icons">
                     <option value="" disabled selected>Choose a category</option>
                     {% for cat in categories %}
-                    <option value="{{cat.category_name}}" >{{cat.category_name.capitalize()}}</option>
+                    <option value="{{cat.category_name}}">{{cat.category_name.capitalize()}}</option>
                     {% endfor %}
-                    
+
                 </select>
                 <label>Cocktail Category</label>
             </div>
@@ -33,7 +33,7 @@
             <div class="file-field input-field col s12">
                 <div class="btn cyan">
                     <span>File</span>
-                    <input name="image" type="file" id="image" >
+                    <input name="image" type="file" id="image">
                 </div>
                 <div class="file-path-wrapper">
                     <input name="image" class="file-path validate" type="text" placeholder="Cocktail Photo">
@@ -85,19 +85,10 @@
                     <h4>Method</h4>
                 </div>
                 <div id="method-list">
-
-                    <div class="input-field col s6">
-                        <input type="number" id="step_num0" name="step_num0" class="materialize-textarea">
-                        <label for="step_num">Enter step number</label>
-                    </div>
-                    <div class="input-field col s6">
-                            <input type="number" id="step_time0" name="step_time0" class="materialize-textarea validate">
-                            <label for="step_time0">Enter step time in minutes</label>
-                        </div>
                     <div class="input-field col s12">
-                            <input type="text" id="method0" name="method0" class="materialize-textarea validate">
-                            <label for="method0">Enter step details</label>
-                        </div>
+                        <input type="text" id="method0" name="method0" class="materialize-textarea validate">
+                        <label for="method0">Enter step details</label>
+                    </div>
                 </div>
 
                 <div class="col s12 center-align">
