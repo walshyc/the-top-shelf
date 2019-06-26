@@ -33,20 +33,35 @@
     <h4>Ingredients</h4>
     <div class="col s12">
         <div class="card-panel cyan">
-
-            
-            <span class="black-text">
-                    {% for ing in cocktail.ingredients %}
-                    {{ing.ing_amount}} {{ing.ing_name.capitalize()}}  <br>
-                    {% endfor %}
-            </span>
            
+            <span class="black-text">
+                {% for ing in cocktail.ingredients %}
+                    {% if ing.ing_amount %}
+                        {{ing.ing_amount}} {{ing.ing_name}}<br>
+                    {% endif %}
+                {% endfor %}
+            </span>
+
         </div>
     </div>
 </div>
 
 <div class="row">
     <h4>Method</h4>
+    <div class="col s12">
+            <div class="card-panel cyan">
+                <ol>
+                    {% for step in cocktail.method %}
+                        {% if step.step_text %}
+                    <li>{{step.step_text}}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+    
+               
+    
+            </div>
+        </div>
 </div>
 
 {% endblock %}

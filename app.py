@@ -93,50 +93,47 @@ def insert_cocktail():
                       'short': request.form['short'],
                       "ingredients": [
                           {
-                              "ing_name0": request.form['ingredient_name0'],
-                              "ing_amount0": request.form['ingredient_amount0']
+                              "ing_name": request.form.get('ingredient_name0'),
+                              "ing_amount": request.form.get('ingredient_amount0')
                           },
                           {
-                              "ing_name1": request.form['ingredient_name1'],
-                              "ing_amount1": request.form['ingredient_amount1']
+                              "ing_name": request.form.get('ingredient_name1'),
+                              "ing_amount": request.form.get('ingredient_amount1')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name2'),
+                              "ing_amount": request.form.get('ingredient_amount2')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name3'),
+                              "ing_amount": request.form.get('ingredient_amount3')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name4'),
+                              "ing_amount": request.form.get('ingredient_amount4')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name5'),
+                              "ing_amount": request.form.get('ingredient_amount5')
                           }
+                          
                       ],
                       "method": [{
-                                "step_num": request.form['step_num0'],
-                                "step_time": request.form['step_time0'],
-                                "step_text": request.form['method0']
-                            }
-                            # {
-                            #     "step_num": request.form['step_num1'],
-                            #     "step_time": request.form['step_time1'],
-                            #     "step_text": request.form['method1']
-                            # }
-                            # {
-                            #     "step_num": request.form['step_num2'],
-                            #     "step_time": request.form['step_time2'],
-                            #     "step_text": request.form['method2']
-                            # },
-                            # {
-                            #     "step_num": request.form['step_num3'],
-                            #     "step_time": request.form['step_time3'],
-                            #     "step_text": request.form['method3']
-                            # },
-                            # {
-                            #     "step_num": request.form['step_num4'],
-                            #     "step_time": request.form['step_time4'],
-                            #     "step_text": request.form['method4']
-                            # },
-                            # {
-                            #     "step_num": request.form['step_num5'],
-                            #     "step_time": request.form['step_time5'],
-                            #     "step_text": request.form['method5']
-                            # },
-                            # {
-                            #     "step_num": request.form['step_num6'],
-                            #     "step_time": request.form['step_time6'],
-                            #     "step_text": request.form['method6']
-                            # },
-                        ]
+                                "step_text": request.form.get('method0')
+                            },
+                            {
+                                "step_text": request.form.get('method1')
+                            },
+                            {
+                                "step_text": request.form.get('method2')
+                            },
+                            {
+                                "step_text": request.form.get('method3')
+                            },
+                            {
+                                "step_text": request.form.get('method4')
+                            },
+                             ]
                       })
 
     # cocktails.insert_one(request.form.to_dict())

@@ -18,16 +18,24 @@ $(document).ready(function () {
         if (ingredientID > 1) {
             $("#remove_ing").show();
         }
+
+        if (ingredientID >= 6) {
+            $("#add_ing").hide();
+        }
     });
 
+    
     $('#remove_ing').click(function (e) {
         e.preventDefault();
         $("#ingredients-list  > div").slice(-2).remove();
         ingredientID--;
+
         if (ingredientID <= 1) {
             $("#remove_ing").hide();
         }
-
+        if (ingredientID < 6) {
+            $("#add_ing").show();
+        }
     });
 
 
@@ -48,6 +56,10 @@ $(document).ready(function () {
         if (methodID > 1) {
             $("#remove_step").show();
         }
+
+        if (methodID >= 6) {
+            $("#add_step").hide();
+        }
     });
 
     $('#remove_step').click(function (e) {
@@ -58,7 +70,9 @@ $(document).ready(function () {
         if (methodID <= 1) {
             $("#remove_step").hide();
         }
-
+        if (methodID < 6) {
+            $("#add_step").show();
+        }
     });
 
 
