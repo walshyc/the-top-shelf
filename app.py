@@ -2,18 +2,21 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import boto3
 import bcrypt
+from config import S3_KEY, S3_SECRET, S3_BUCKET
+
 
 app = Flask(__name__)
-
-app.config["MONGO_DBNAME"] = 'theTopShelf'
-app.config["MONGO_URI"] = 'mongodb+srv://root:jk6200dl@myfirstcluster-fdipx.mongodb.net/theTopShelf?retryWrites=true&w=majority'
-
+app.config.from_object("config")
 app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
 
 
-mongo = PyMongo(app)
 
+
+
+
+mongo = PyMongo(app)
 
 @app.route("/")
 def home():
@@ -86,7 +89,7 @@ def add_cocktail():
 @app.route('/insert_cocktail', methods=['POST'])
 def insert_cocktail():
     cocktails = mongo.db.cocktails
-
+    
     cocktails.insert({'cocktail_base': request.form['cocktail_base'],
                       'cocktail_name': request.form['cocktail_name'],
                       'image': request.form['image'],
