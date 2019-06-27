@@ -2,7 +2,8 @@
 {% block title %}
 <title>{{cocktail.cocktail_name.title()}} - The Top Shelf</title>
 {% endblock %}
-{% block slider %}
+
+{% block content %}
 
 <div id="category-slider" class="slider">
     <ul class="slides">
@@ -18,50 +19,38 @@
 
     </ul>
 </div>
-{% endblock %}
 
-{% block content %}
+
 <div class="row">
     <div class="col s12">
-        <h1>{{cocktail.cocktail_name.title()}}</h1>
-        <h4>{{cocktail.cocktail_tagline}}</h4>
+        <h1 class="cyan-text">{{cocktail.cocktail_name.title()}}</h1>
+        <p class="flow-text">{{cocktail.short}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m6">
+        <p class="flow-text cyan-text">Ingredients for {{cocktail.cocktail_name.title()}}</p>
+
+        <ul class="collection">{% for ing in cocktail.ingredients %}
+            {% if ing.ing_amount %}
+            <li class="collection-item">{{ing.ing_amount}} {{ing.ing_name.title()}}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <div class="col s12 m6">
+        <p class="flow-text cyan-text">How to make a {{cocktail.cocktail_name.title()}}</p>
+
+        <ul class="collection">{% for step in cocktail.method %}
+            {% if step.step_text %}
+            <li class="collection-item">{{step.step_text}}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
     </div>
 </div>
 
-
-<div class="row">
-    <h4>Ingredients</h4>
-    <div class="col s12">
-        <div class="card-panel cyan">
-           
-            <span class="black-text">
-                {% for ing in cocktail.ingredients %}
-                    {% if ing.ing_amount %}
-                        {{ing.ing_amount}} {{ing.ing_name}}<br>
-                    {% endif %}
-                {% endfor %}
-            </span>
-
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <h4>Method</h4>
-    <div class="col s12">
-            <div class="card-panel cyan">
-                <ol>
-                    {% for step in cocktail.method %}
-                        {% if step.step_text %}
-                    <li>{{step.step_text}}</li>
-                        {% endif %}
-                    {% endfor %}
-                </ol>
-    
-               
-    
-            </div>
-        </div>
-</div>
 
 {% endblock %}
