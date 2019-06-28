@@ -8,7 +8,7 @@
 <div id="category-slider" class="slider">
     <ul class="slides">
         <li>
-            <img  src="{{cocktail.image}}">
+            <img src="{{cocktail.image}}">
 
             <!-- <div class="caption center-align">
                 <h3></h3>
@@ -31,12 +31,14 @@
 </div>
 <div class="row">
     <div class="col s12 m6">
-        <p class="flow-text cyan-text">Ingredients for {{cocktail.cocktail_name.title()}}</p>
+        <p class="flow-text cyan-text bold">Ingredients for {{cocktail.cocktail_name.title()}}</p>
         <table class=" highlight">
             {% for ing in cocktail.ingredients %}
             {% if ing.ing_amount %}
             <tr>
-                <td>{{ing.ing_amount.capitalize()}} {{ing.ing_name.title()}}</td>
+                <td class="ing_table"><i class="material-icons cyan-text">
+                    keyboard_arrow_right
+                    </i><span> {{ing.ing_amount.capitalize()}} {{ing.ing_name.title()}}</span></td>
             </tr>
             {% endif %}
             {% endfor %}
@@ -47,19 +49,28 @@
 
 
     <div class="col s12 m6">
-        <p class="flow-text cyan-text">How to make a {{cocktail.cocktail_name.title()}}</p>
+        <p class="flow-text cyan-text bold">How to make a {{cocktail.cocktail_name.title()}}</p>
 
         <table class=" highlight">
             {% for step in cocktail.method %}
             {% if step.step_text %}
             <tr>
-                <td>{{step.step_text}}</td>
+                <!-- <td><span class="step">{{loop.index}}.</span><span class="indent"> {{step.step_text}}</span></td> -->
+                <td class="ing_table"><i class="material-icons cyan-text">
+                    filter_{{loop.index}}
+                    </i><span></td>
+                        <td> {{step.step_text}}</td>
             </tr>
             {% endif %}
             {% endfor %}
 
         </table>
 
+    </div>
+    <div class="row">
+        <div class="col s12">
+
+        </div>
     </div>
 </div>
 

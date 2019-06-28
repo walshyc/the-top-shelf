@@ -6,24 +6,26 @@
 <div class="slider">
     <ul class="slides">
         {% for cocktails in cocktails %}
+        {% if loop.index < 8 %}
         {% if loop.index % 2 != 0 %}
         <li>
-            <img src="{{cocktails.image}}">
+            <img class="cocktail-img" src="{{cocktails.image}}">
             <!-- random image -->
-            <div class="caption right-align">
-                <h3>{{cocktails.cocktail_name.title()}}</h3>
-                <h5 class="light grey-text text-lighten-3">{{cocktails.short}}</h5>
+            <div class="caption right-align hero-text">
+                <h3 class="black-text">{{cocktails.cocktail_name.title()}}</h3>
+                <p class="black-text short-desc">{{cocktails.short}}</p>
             </div>
         </li>
         {% else %}
         <li>
-            <img src="{{cocktails.image}}">
+            <img class="cocktail-img" src="{{cocktails.image}}">
             <!-- random image -->
-            <div class="caption left-align">
-                <h3>{{cocktails.cocktail_name.title()}}</h3>
-                <h5 class="light grey-text text-lighten-3">{{cocktails.short}}</h5>
+            <div class="caption left-align hero-text">
+                <h3 class="black-text">{{cocktails.cocktail_name.title()}}</h3>
+                <p class="black-text short-desc">{{cocktails.short}}</p>
             </div>
         </li>
+        {% endif %}
         {% endif %}
         {% endfor %}
 
