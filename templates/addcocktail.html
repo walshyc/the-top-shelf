@@ -25,19 +25,16 @@
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">local_bar</i>
 
-                <input name="cocktail_name" id="cocktail_name" type="text" class="validate cyan-text">
+                <input name="cocktail_name" id="cocktail_name" type="text" class="validate cyan-text" required>
                 <label for="cocktail_name">Cocktail Name</label>
             </div>
         </div>
         <div class="row">
-            <div class="file-field input-field col s12">
-                <div class="btn cyan">
-                    <span>File</span>
-                    <input name="image" type="file" id="image">
-                </div>
-                <div class="file-path-wrapper">
-                    <input name="image" class="file-path validate" type="text" placeholder="Cocktail Photo">
-                </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">local_bar</i>
+
+                <input name="cocktail_url" id="cocktail_url" type="text" class="validate cyan-text" required>
+                <label for="cocktail_url">Image URL</label>
             </div>
         </div>
 
@@ -45,24 +42,24 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">description</i>
 
-                <textarea name="short" id="cocktail_short" class="materialize-textarea" data-length="160"></textarea>
+                <textarea name="short" id="cocktail_short" class="materialize-textarea cyan-text" data-length="160" required></textarea>
                 <label for="cocktail_short">Cocktail Short Description</label>
             </div>
         </div>
 
         <div class="row">
-            <div class="row ingredients">
+            <div class="ingredients">
                 <div class="col s12">
                     <h4>Ingredients</h4>
                 </div>
                 <div id="ingredients-list">
                     <div class="input-field col s6">
-                        <input type="text" id="ingredient_name0" name="ingredient_name0" class="materialize-textarea">
+                        <input type="text" id="ingredient_name0" name="ingredient_name0" class="materialize-textarea" required>
                         <label for="ingredient_name0">Ingredient</label>
                     </div>
                     <div class="input-field col s6">
                         <input type="text" id="ingredient_amount0" name="ingredient_amount0"
-                            class="materialize-textarea">
+                            class="materialize-textarea" required>
                         <label for="ingredient_amount0">Amount</label>
                     </div>
                 </div>
@@ -86,7 +83,7 @@
                 </div>
                 <div id="method-list">
                     <div class="input-field col s12">
-                        <input type="text" id="method0" name="method0" class="materialize-textarea validate">
+                        <input type="text" id="method0" name="method0" class="materialize-textarea validate" required>
                         <label for="method0">Enter step details</label>
                     </div>
                 </div>
@@ -104,7 +101,7 @@
         </div>
         <div class="row">
             <div class="col s12 right-align">
-                <button class="btn waves-effect waves-light cyan" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light cyan" type="submit" name="action">Upload Cocktail
                     <i class="material-icons right">send</i>
                 </button>
             </div>

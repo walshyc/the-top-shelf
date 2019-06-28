@@ -13,9 +13,6 @@ app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
 
 
 
-
-
-
 mongo = PyMongo(app)
 
 @app.route("/")
@@ -92,7 +89,7 @@ def insert_cocktail():
     
     cocktails.insert({'cocktail_base': request.form['cocktail_base'],
                       'cocktail_name': request.form['cocktail_name'],
-                      'image': request.form['image'],
+                      'image': request.form['cocktail_url'],
                       'short': request.form['short'],
                       "ingredients": [
                           {

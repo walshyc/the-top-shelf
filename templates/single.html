@@ -3,12 +3,12 @@
 <title>{{cocktail.cocktail_name.title()}} - The Top Shelf</title>
 {% endblock %}
 
-{% block content %}
+{% block slider %}
 
 <div id="category-slider" class="slider">
     <ul class="slides">
         <li>
-            <img src="{{cocktail.image}}">
+            <img  src="{{cocktail.image}}">
 
             <!-- <div class="caption center-align">
                 <h3></h3>
@@ -20,7 +20,9 @@
     </ul>
 </div>
 
+{% endblock %}
 
+{% block content %}
 <div class="row">
     <div class="col s12">
         <h1 class="cyan-text">{{cocktail.cocktail_name.title()}}</h1>
@@ -30,25 +32,34 @@
 <div class="row">
     <div class="col s12 m6">
         <p class="flow-text cyan-text">Ingredients for {{cocktail.cocktail_name.title()}}</p>
-
-        <ul class="collection">{% for ing in cocktail.ingredients %}
+        <table class=" highlight">
+            {% for ing in cocktail.ingredients %}
             {% if ing.ing_amount %}
-            <li class="collection-item">{{ing.ing_amount}} {{ing.ing_name.title()}}</li>
+            <tr>
+                <td>{{ing.ing_amount.capitalize()}} {{ing.ing_name.title()}}</td>
+            </tr>
             {% endif %}
             {% endfor %}
-        </ul>
+
+        </table>
+        
     </div>
 
 
     <div class="col s12 m6">
         <p class="flow-text cyan-text">How to make a {{cocktail.cocktail_name.title()}}</p>
 
-        <ul class="collection">{% for step in cocktail.method %}
+        <table class=" highlight">
+            {% for step in cocktail.method %}
             {% if step.step_text %}
-            <li class="collection-item">{{step.step_text}}</li>
+            <tr>
+                <td>{{step.step_text}}</td>
+            </tr>
             {% endif %}
             {% endfor %}
-        </ul>
+
+        </table>
+
     </div>
 </div>
 
