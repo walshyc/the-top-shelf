@@ -43,6 +43,11 @@ body {
 .short-desc {
     font-size: 1.2em;
 }
+
+.custom-btn{
+    font-size: 1.5em;
+    font-weight: bold;
+}
 /* label focus color */
 .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label, i.prefix {
     color: #00bcd4 !important;
