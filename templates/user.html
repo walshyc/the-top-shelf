@@ -1,0 +1,49 @@
+{% extends  'base.html' %}
+{% block title %}
+<title>The Top Shelf - Register</title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 m5">
+        
+        <h4>Login</h4>
+        <h5>{{error_msg}}</h5>
+        <form method=POST action="{{ url_for('login') }}">
+            <div class="row">
+                <div class="input-field">
+                    <label for="username">Username</label>
+                    <input type="text" class="validate" name="username" placeholder="Username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" class="validate" name="password" placeholder="Password">
+                </div>
+            </div>
+                <button type="submit" class="btn cyan">Login</button>
+            </form>
+        </div>
+
+        <div class="col s12 m5 right">
+                <h4>Register</h4>
+                <h5>{{error_msg}}</h5>
+                <form method=POST action="{{ url_for('register') }}">
+                    <div class="row">
+                        <div class="input-field">
+                            <label for="username">Username</label>
+                            <input type="text" class="validate" name="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field">
+                            <label for="password">Password</label>
+                            <input type="password" class="validate" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                        <button type="submit" class="btn cyan">Register</button>
+                    </form>
+                </div>
+</div>
+{% endblock %}

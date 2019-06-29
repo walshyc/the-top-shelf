@@ -20,6 +20,8 @@
 </head>
 
 <body>
+
+    {% if user %}
     <nav>
         <div class="nav-wrapper cyan ">
             <a href="/" class="brand-logo black-text">The Top Shelf</a>
@@ -29,10 +31,41 @@
                         Cocktails</a></li>
                 <li><a class="black-text" href="{{url_for('add_cocktail')}}"><i class="material-icons left">note_add</i>Add a Cocktail</a></li>
                 <li><a class="black-text" href="#"><i class="material-icons left">search</i>Find a Cocktail</a></li>
+                <li><a class="black-text" href="{{url_for('logout')}}"><i class="material-icons left">highlight_off</i>Logout</a></li>
             </ul>
         </div>
     </nav>
 
+    <ul class="sidenav cyan black-text" id="mobile-demo">
+        <li><a href="/" class="brand-logo black-text">The Top Shelf</a></li>
+        <li><a class="black-text" href="{{url_for('categories')}}"><i class="material-icons left">local_bar</i>View Cocktails</a></li>
+        <li><a class="black-text" href="{{url_for('add_cocktail')}}"><i class="material-icons left">note_add</i>Add a Cocktail</a></li>
+        <li><a class="black-text" href="#"><i class="material-icons left">search</i>Find a Cocktail</a></li>
+        <li><a class="black-text" href="{{url_for('logout')}}"><i class="material-icons left">highlight_off</i>Logout</a></li>
+    </ul>
+    
+{% else %}
+    <nav>
+        <div class="nav-wrapper cyan ">
+            <a href="/" class="brand-logo black-text">The Top Shelf</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+            <ul class="right hide-on-med-and-down black-text">
+                <li><a class="black-text" href="{{url_for('categories')}}"><i class="material-icons left">local_bar</i>View
+                        Cocktails</a></li>
+                <li><a class="black-text" href="#"><i class="material-icons left">search</i>Find a Cocktail</a></li>
+                <li><a class="black-text" href="{{url_for('user')}}"><i class="material-icons left">group</i>Login/Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav cyan black-text" id="mobile-demo">
+        <li><a href="/" class="brand-logo black-text">The Top Shelf</a></li>
+        <li><a class="black-text" href="{{url_for('categories')}}"><i class="material-icons left">local_bar</i>View Cocktails</a></li>
+        <li><a class="black-text" href="#"><i class="material-icons left">search</i>Find a Cocktail</a></li>
+        <li><a class="black-text" href="{{url_for('user')}}"><i class="material-icons left">group</i>Login/Register</a></li>
+      </ul>
+    
+    {% endif %}
     <ul class="sidenav cyan black-text" id="mobile-demo">
         <li><a href="/" class="brand-logo black-text">The Top Shelf</a></li>
         <li><a class="black-text" href="{{url_for('categories')}}"><i class="material-icons left">local_bar</i>View Cocktails</a></li>

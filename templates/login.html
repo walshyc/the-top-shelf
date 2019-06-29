@@ -1,51 +1,31 @@
 {% extends  'base.html' %}
 {% block title %}
-<title>The Top Shelf - Cocktail Ideas</title>
+<title>The Top Shelf - login</title>
 {% endblock %}
-{% block slider %}
-<div class="slider">
-    <ul class="slides">
-        {% for cocktails in cocktails %}
-        {% if loop.index % 2 != 0 %}
-        <li>
-            <img src="{{cocktails.image}}">
-            <!-- random image -->
-            <div class="caption right-align">
-                <h3>{{cocktails.cocktail_name.title()}}</h3>
-                <h5 class="light grey-text text-lighten-3">{{cocktails.short}}</h5>
-            </div>
-        </li>
-        {% else %}
-        <li>
-            <img src="{{cocktails.image}}">
-            <!-- random image -->
-            <div class="caption left-align">
-                <h3>{{cocktails.cocktail_name.title()}}</h3>
-                <h5 class="light grey-text text-lighten-3">{{cocktails.short}}</h5>
-            </div>
-        </li>
-        {% endif %}
-        {% endfor %}
 
-    </ul>
-</div>
-{% endblock %}
 {% block content %}
 <div class="row">
-    {% for categories in categories %}
-    <div class="col s12 m4">
-            <a href="{{url_for('category_id',category_id=categories._id)}}" class="black-text  ">
-                <div class="card cyan">
-                    <div class="card-image">
-                        <img src="{{categories.category_image}}">
-                    </div>
-                    <div class="card-content center-align">
-                        <span class="card-title activator black-text center-align ">
-                            {{categories.category_name.upper()}}</span>
-                    </div>
+    <div class="col s12">
+        <h4></h4>
+        <form method=POST action="{{ url_for('login') }}">
+            <div class="row">
+                <div class="input-field">
+                    <label for="username">Username</label>
+                    <input type="text" class="validate" name="username" placeholder="Username">
                 </div>
-            </a>
-        </div>
-    {% endfor %}
+            </div>
+            <div class="row">
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" class="validate" name="password" placeholder="Password">
+                </div>
+            </div>
+            <button type="submit" class="btn cyan">Login</button>
+        </form>
+    <div class="col s12">
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Sign up here</a>.
+        </p>
+    </div>
+    </div>
 </div>
 {% endblock %}

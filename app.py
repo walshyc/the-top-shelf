@@ -2,9 +2,8 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-import boto3
 import bcrypt
-from config import S3_KEY, S3_SECRET, S3_BUCKET
+
 
 
 app = Flask(__name__)
@@ -17,18 +16,39 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
+     
     if 'username' in session:
-        user_msg = 'You are logged in as ' + session['username']
+        user = session['username']
+        signed_in = "You are signed in as " + user
+        return render_template('index.html', user = user, message=signed_in, categories=mongo.db.categories.find(), cocktails=mongo.db.cocktails.find())
 
     user_msg = 'You are not logged in'
 
     return render_template('index.html', message=user_msg, categories=mongo.db.categories.find(), cocktails=mongo.db.cocktails.find())
 
 
-@app.route("/login")
-def login():
-    return ''
+@app.route('/user')
+def user():
+    return render_template('user.html')
 
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+
+    return redirect(url_for('home'))
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+
+        users = mongo.db.users
+        login_user = users.find_one({'name' : request.form['username']})
+
+        if login_user:
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) ==  login_user['password']:
+                session['username'] = request.form['username']
+                return redirect(url_for('home'))
+
+        return redirect(url_for('home'))
 
 @app.route("/register", methods=['POST', 'GET'])
 def register():
@@ -38,17 +58,16 @@ def register():
         existing_user = users.find_one({'name': request.form['username']})
 
         if existing_user is None:
-            hashpassword = bcrypt.hashpw(
-                request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            hashpassword = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             users.insert(
                 {'name': request.form['username'], 'password': hashpassword})
             session['username'] = request.form['username']
             return redirect(url_for('home'))
         else:
             error = 'This username already exists'
-            return render_template('register.html', error_msg=error)
+            return render_template('user.html', error_msg=error)
 
-    return render_template('register.html')
+    return render_template('user.html')
 
     return redirect(url_for('home'))
 
@@ -74,7 +93,6 @@ def category_id(category_id):
 @app.route('/<cocktail_id>')
 def cocktail_id(cocktail_id):
     cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)})
-    
     return render_template("single.html", cocktail=cocktail)
 
 
@@ -87,7 +105,8 @@ def add_cocktail():
 def insert_cocktail():
     cocktails = mongo.db.cocktails
     
-    cocktails.insert({'cocktail_base': request.form['cocktail_base'],
+    cocktails.insert({'added_by': session['username'],
+                      'cocktail_base': request.form['cocktail_base'],
                       'cocktail_name': request.form['cocktail_name'],
                       'image': request.form['cocktail_url'],
                       'short': request.form['short'],
