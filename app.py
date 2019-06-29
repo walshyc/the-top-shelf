@@ -20,7 +20,7 @@ def home():
     if 'username' in session:
         user = session['username']
         signed_in = "You are signed in as " + user
-        return render_template('index.html', user = user, message=signed_in, categories=mongo.db.categories.find(), cocktails=mongo.db.cocktails.find())
+        return render_template('index.html', user = user, categories=mongo.db.categories.find(), cocktails=mongo.db.cocktails.find())
 
     user_msg = 'You are not logged in'
 

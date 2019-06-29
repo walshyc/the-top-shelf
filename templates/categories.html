@@ -9,7 +9,7 @@
 <div class="row">
     {% for categories in categories %}
     <div class="col s12 m4">
-        <a href="{{url_for('category_id',category_id=categories._id)}}" class="black-text  ">
+        <a href="{{url_for('category_name',category_name=categories.category_name)}}" class="black-text  ">
             <div class="card cyan">
                 <div class="card-image">
                     <img src="{{categories.category_image}}">
