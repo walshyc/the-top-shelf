@@ -77,17 +77,17 @@ def categories():
     return render_template('categories.html', categories=mongo.db.categories.find())
 
 
-@app.route('/categories/<category_id>')
-def category_id(category_id):
-    the_category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+@app.route('/categories/<category_name>')
+def category_name(category_name):
+    the_category = mongo.db.categories.find_one({"category_name": category_name})
     return render_template("drink.html", categories=mongo.db.categories.find(), category=the_category, cocktails=mongo.db.cocktails.find())
 
-# @app.route('/categories/<category_id>/<cocktail_id>')
-# def cocktail_id(category_id, cocktail_id):
-#     the_category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-#     all_cocktails = mongo.db.cocktails.find()
-#     the_cocktail = mongo.db.cocktails.find_one({"_id": ObjectId(cocktail_id)})
-#     return render_template("single.html", category = the_category, categories=mongo.db.categories.find(),  cocktails = mongo.db.cocktails.find(), cocktail = the_cocktail)
+@app.route('/categories/<category_name>/<cocktail_name>')
+def cocktail_id_long(category_name, cocktail_name):
+     the_category = mongo.db.categories.find_one({"category_name": category_name})
+     all_cocktails = mongo.db.cocktails.find()
+     the_cocktail = mongo.db.cocktails.find_one({"cocktail_name": cocktail_name})
+     return render_template("single.html", category = the_category, categories=mongo.db.categories.find(),  cocktails = mongo.db.cocktails.find(), cocktail = the_cocktail)
 
 
 @app.route('/<cocktail_id>')
