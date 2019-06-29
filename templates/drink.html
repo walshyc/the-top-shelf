@@ -27,7 +27,7 @@
 
     {% if cocktails.cocktail_base == category.category_name  %}
     <div class="col s12 m6 l4">
-        <a class="" href="{{url_for('cocktail_id_long', category_name= category.category_name, cocktail_name =cocktails.cocktail_name )}}"><div class="card">
+        <a class="" href="{{url_for('cocktail_id_long', category_name= category.category_name, cocktail_name =cocktails.cocktail_name)}}"><div class="card">
             <div class="card-image">
                 <img src="{{cocktails.image}}">
                 
