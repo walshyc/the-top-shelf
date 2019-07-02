@@ -36,56 +36,48 @@
 
 {% if user %}
 <div class="row">
-        <div class="col s12">
-                <div class="card cyan">
-                  <div class="card-content black-text center-align">
-                    <span class="card-title">Welcome back {{session['username'].title()}}</span>
-                    
-                  </div>
-                  
-                  <div class="card-action center-align">
-                        <a class="black-text ing_table" href="{{url_for('add_cocktail')}}"><i class="material-icons">note_add</i> Add a Cocktail</a>
-                        <a class="black-text ing_table" href="{{url_for('add_cocktail')}}"><i class="material-icons">local_bar</i> View your Cocktails</a>
-                  </div>
+    <div class="col s12">
+        <div class="card cyan">
+            <div class="card-content black-text center-align">
+                <span class="card-title">Welcome {{session['username'].title()}}</span>
+
+            </div>
+
+            <div class="center-align">
+                <div class="row">
+                    <div class="col s12 m6 home_user">
+                        <a class="black-text ing_table" href="{{url_for('add_cocktail')}}"><i
+                                class="material-icons">note_add</i> Add a Cocktail</a>
+                    </div>
+                    <div class="col s12 m6 home_user">
+                        <a class="black-text ing_table" href="{{url_for('user_drinks', username = user)}}"><i
+                                class="material-icons">local_bar</i> View your Cocktails</a>
+                    </div>
                 </div>
-              </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 {% else %}
-
-<div class="row">
-        <div class="col s12">
-                <div class="card cyan">
-                  <div class="card-content black-text center-align">
-                    <span class="card-title">Login or register to add a new cocktail!</span>
-                    
-                  </div>
-                  
-                  <div class="card-action center-align">
-                        <a class="cyan-text ing_table btn grey darken-4 custom-btn" href="{{url_for('user')}}"><i class="material-icons">group</i> Login or Register</a>
-                  </div>
-                </div>
-              </div>
-
-</div>
 
 {% endif %}
 
 <div class="row">
     {% for categories in categories %}
     <div class="col s12 m6 l4">
-            <a href="{{url_for('category_name',category_name=categories.category_name)}}" class="black-text  ">
-                <div class="card cyan">
-                    <div class="card-image">
-                        <img src="{{categories.category_image}}">
-                    </div>
-                    <div class="card-content center-align">
-                        <span class="card-title activator black-text center-align ">
-                            {{categories.category_name.upper()}}</span>
-                    </div>
+        <a href="{{url_for('category_name',category_name=categories.category_name)}}" class="black-text  ">
+            <div class="card cyan">
+                <div class="card-image">
+                    <img src="{{categories.category_image}}">
                 </div>
-            </a>
-        </div>
+                <div class="card-content center-align">
+                    <span class="card-title activator black-text center-align ">
+                        {{categories.category_name.upper()}}</span>
+                </div>
+            </div>
+        </a>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

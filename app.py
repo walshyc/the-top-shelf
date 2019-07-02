@@ -41,31 +41,32 @@ def logout():
 def login():
 
         users = mongo.db.users
-        login_user = users.find_one({'name' : request.form['username']})
+        login_user = users.find_one({'name' : request.form['username'].lower()})
 
         if login_user:
             if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) ==  login_user['password']:
-                session['username'] = request.form['username']
+                session['username'] = request.form['username'].lower()
                 return redirect(url_for('home'))
-
-        return redirect(url_for('home'))
+        else:
+            error = 'Incorrect Username/Password combination'
+            return render_template('user.html', error_msg_login=error)
 
 @app.route("/register", methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
 
         users = mongo.db.users
-        existing_user = users.find_one({'name': request.form['username']})
+        existing_user = users.find_one({'name': request.form['username'].lower()})
 
         if existing_user is None:
             hashpassword = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
             users.insert(
-                {'name': request.form['username'], 'password': hashpassword})
-            session['username'] = request.form['username']
+                {'name': request.form['username'].lower(), 'password': hashpassword})
+            session['username'] = request.form['username'].lower()
             return redirect(url_for('home'))
         else:
             error = 'This username already exists'
-            return render_template('user.html', error_msg=error)
+            return render_template('user.html', error_msg_register=error)
 
     return render_template('user.html')
 
@@ -81,6 +82,14 @@ def categories():
 def category_name(category_name):
     the_category = mongo.db.categories.find_one({"category_name": category_name})
     return render_template("drink.html", categories=mongo.db.categories.find(), category=the_category, cocktails=mongo.db.cocktails.find())
+
+@app.route('/<username>')
+def user_drinks(username):
+    if 'username' in session:
+        user = session['username']
+    user_drinks = mongo.db.categories.find()
+    the_category = mongo.db.categories.find_one()
+    return render_template("user_cocktails.html", categories=mongo.db.categories.find(), cocktails=mongo.db.cocktails.find(), category=the_category, user=user)
 
 @app.route('/categories/<category_name>/<cocktail_name>')
 def cocktail_id_long(category_name, cocktail_name):
