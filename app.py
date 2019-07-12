@@ -180,7 +180,7 @@ def edit_cocktail(cocktail_name):
 def update_cocktail(cocktail_name):
     cocktails = mongo.db.cocktails
     cocktails.update( {"cocktail_name": cocktail_name}, 
-                 {
+                 {    'added_by': session['username'], 
                       'cocktail_base': request.form['cocktail_base'],
                       'cocktail_name': request.form['cocktail_name'],
                       'image': request.form['cocktail_url'],
