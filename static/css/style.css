@@ -60,6 +60,19 @@ body {
     font-size: 1.5em;
     font-weight: bold;
 }
+
+nav.nav-extended .nav-wrapper {
+height: 67px;
+}
+
+.logo{
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.sidenav > li > a{
+    font-weight: bold;
+}
 /* label focus color */
 .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label, i.prefix {
     color: #00bcd4 !important;
@@ -77,6 +90,7 @@ body {
         padding-left: 15px;
     }
 }
+
 
 @media screen and (min-width: 1250px) {
     .card.medium {
