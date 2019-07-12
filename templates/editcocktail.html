@@ -1,0 +1,182 @@
+{% extends  'base.html' %}
+
+{% block title %}
+<title>Edit {{drink.cocktail_name.title()}} - The Top Shelf</title>
+{% endblock %}
+
+{% block content %}
+
+<h3>Edit {{drink.cocktail_name.title()}}</h3>
+
+<div class="row">
+    <form id="editcocktail" action="{{url_for('update_cocktail', cocktail_name = drink.cocktail_name)}}" method="POST"
+        class="col s12">
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">category</i>
+                <select id="cocktail_category" name="cocktail_base" class="icons">
+
+                    <option value="" disabled selected>Choose a category</option>
+                    {% for cat in categories %}
+                    {% if cat.category_name.lower()  == drink.cocktail_base.lower()  %}
+                    <option selected value="{{cat.category_name}}">{{cat.category_name.capitalize()}}</option>
+                    {% else %}
+                    <option value="{{cat.category_name}}">{{cat.category_name.capitalize()}}</option>
+
+                    {% endif %}
+                    {% endfor %}
+
+                </select>
+                <label>Cocktail Category</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">local_bar</i>
+
+                <input name="cocktail_name" id="cocktail_name" type="text" class="validate cyan-text" required
+                    value="{{drink.cocktail_name.title()}}">
+                <label for="cocktail_name">Cocktail Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">local_bar</i>
+
+                <input name="cocktail_url" id="cocktail_url" type="text" class="validate cyan-text" required
+                    value="{{drink.image}}">
+                <label for="cocktail_url">Image URL</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">description</i>
+
+                <textarea name="short" id="cocktail_short" class="materialize-textarea cyan-text" data-length="160"
+                    required>{{drink.short}}</textarea>
+                <label for="cocktail_short">Cocktail Short Description</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="ingredients">
+                <div class="col s12">
+                    <h4>Ingredients</h4>
+                </div>
+                <div id="ingredients-list">
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_name0" name="ingredient_name0" class="materialize-textarea"
+                            required value="{{drink.ingredients[0].ing_name}}">
+                        <label for="ingredient_name0">Ingredient</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_amount0" name="ingredient_amount0"
+                            class="materialize-textarea" required value="{{drink.ingredients[0].ing_amount}}">
+                        <label for="ingredient_amount0">Amount</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_name1" name="ingredient_name1" class="materialize-textarea"
+                            value="{{drink.ingredients[1].ing_name if drink.ingredients[1].ing_name != None}}">
+                        <label for="ingredient_name1">Ingredient</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_amount1" name="ingredient_amount1"
+                            class="materialize-textarea" value="{{drink.ingredients[1].ing_amount if drink.ingredients[1].ing_amount != None}}">
+                        <label for="ingredient_amount1" class="">Amount</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_name2" name="ingredient_name2" class="materialize-textarea"
+                            value="{{drink.ingredients[2].ing_name if drink.ingredients[2].ing_name != None}}">
+                        <label for="ingredient_name2">Ingredient</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_amount2" name="ingredient_amount2"
+                            class="materialize-textarea" value="{{drink.ingredients[2].ing_amount if drink.ingredients[2].ing_amount != None}}">
+                        <label for="ingredient_amount2">Amount</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_name3" name="ingredient_name3" class="materialize-textarea"
+                            value="{{drink.ingredients[3].ing_name if drink.ingredients[3].ing_name != None}}">
+                        <label for="ingredient_name3">Ingredient</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_amount3" name="ingredient_amount3"
+                            class="materialize-textarea" value="{{drink.ingredients[3].ing_amount if drink.ingredients[3].ing_amount != None}}">
+                        <label for="ingredient_amount3">Amount</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_name4" name="ingredient_name4" class="materialize-textarea"
+                            value="{{drink.ingredients[4].ing_name if drink.ingredients[4].ing_name != None}}">
+                        <label for="ingredient_name4">Ingredient</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_amount4" name="ingredient_amount4"
+                            class="materialize-textarea" value="{{drink.ingredients[4].ing_amount if drink.ingredients[4].ing_amount != None}}">
+                        <label for="ingredient_amount4">Amount</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_name5" name="ingredient_name5" class="materialize-textarea"
+                            value="{{drink.ingredients[5].ing_name if drink.ingredients[5].ing_name != None}}">
+                        <label for="ingredient_name5">Ingredient</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="ingredient_amount5" name="ingredient_amount5"
+                            class="materialize-textarea" value="{{drink.ingredients[5].ing_amount if drink.ingredients[5].ing_amount != None}}">
+                        <label for="ingredient_amount5">Amount</label>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="row method">
+                <div class="col s12">
+                    <h4>Method</h4>
+                </div>
+                <div id="method-list">
+                    <div class="input-field col s12">
+                        <input type="text" id="method0" name="method0" class="materialize-textarea validate"
+                            required="" value="{{drink.method[0].step_text}}">
+                        <label for="method0">Enter step details</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <input type="text" id="method1" name="method1" class="materialize-textarea validate" value="{{drink.method[1].step_text if drink.method[1].step_text != None}}">
+                        <label for="method1">Enter step details</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" id="method2" name="method2" class="materialize-textarea validate" value="{{drink.method[2].step_text if drink.method[2].step_text != None}}">
+                        <label for="method2">Enter step details</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" id="method3" name="method3" class="materialize-textarea validate" value="{{drink.method[3].step_text if drink.method[3].step_text != None}}">
+                        <label for="method3">Enter step details</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" id="method4" name="method4" class="materialize-textarea validate" value="{{drink.method[4].step_text if drink.method[4].step_text != None}}">
+                        <label for="method4">Enter step details</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" id="method5" name="method5" class="materialize-textarea validate" value="{{drink.method[5].step_text if drink.method[5].step_text != None}}">
+                        <label for="method5">Enter step details</label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col s12 right-align">
+                <button class="btn waves-effect waves-light cyan" type="submit" name="action">Edit {{drink.cocktail_name.title()}}
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+{% endblock %}

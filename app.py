@@ -12,7 +12,10 @@ app.secret_key = '_5#y2L"F4Q8z\n\xec]/'
 
 
 
+
 mongo = PyMongo(app)
+
+
 
 @app.route("/")
 def home():
@@ -167,6 +170,76 @@ def insert_cocktail():
     # cocktails.insert_one(request.form.to_dict())
     return redirect(url_for('categories'))
 
+
+@app.route('/edit_cocktail/<cocktail_name>')
+def edit_cocktail(cocktail_name):
+    the_cocktail = mongo.db.cocktails.find_one({"cocktail_name": cocktail_name})
+    return render_template('editcocktail.html',  drink = the_cocktail,  categories=mongo.db.categories.find())
+
+@app.route('/update_cocktail/<cocktail_name>', methods=['POST'])
+def update_cocktail(cocktail_name):
+    cocktails = mongo.db.cocktails
+    cocktails.update( {"cocktail_name": cocktail_name}, 
+                 {
+                      'cocktail_base': request.form['cocktail_base'],
+                      'cocktail_name': request.form['cocktail_name'],
+                      'image': request.form['cocktail_url'],
+                      'short': request.form['short'],
+                      "ingredients": [
+                          {
+                              "ing_name": request.form.get('ingredient_name0'),
+                              "ing_amount": request.form.get('ingredient_amount0')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name1'),
+                              "ing_amount": request.form.get('ingredient_amount1')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name2'),
+                              "ing_amount": request.form.get('ingredient_amount2')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name3'),
+                              "ing_amount": request.form.get('ingredient_amount3')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name4'),
+                              "ing_amount": request.form.get('ingredient_amount4')
+                          },
+                          {
+                              "ing_name": request.form.get('ingredient_name5'),
+                              "ing_amount": request.form.get('ingredient_amount5')
+                          }
+                          
+                      ],
+                      "method": [{
+                                "step_text": request.form.get('method0')
+                            },
+                            {
+                                "step_text": request.form.get('method1')
+                            },
+                            {
+                                "step_text": request.form.get('method2')
+                            },
+                            {
+                                "step_text": request.form.get('method3')
+                            },
+                            {
+                                "step_text": request.form.get('method4')
+                            },
+                            {
+                                "step_text": request.form.get('method4')
+                            },
+                             ]
+        })
+    return redirect(url_for('categories'))
+
+
+@app.route('/delete_cocktail/<cocktail_name>')
+def delete_cocktail(cocktail_name):
+    mongo.db.cocktails.remove({"cocktail_name": cocktail_name})
+    return redirect(url_for('categories'))
+    
 
 if __name__ == "__main__":
     app.secret_key = '_5#y2L"F4Q8z\n\xec]/'

@@ -29,9 +29,12 @@ body {
 .ing_table > i, .ing_table{ vertical-align: middle !important; }
 
 .card .card-content {
-    padding: 5px!important;
+    padding: 15px!important;
 }
 
+.card-btn{
+    margin: 15px;
+}
 
 
 .bold{
