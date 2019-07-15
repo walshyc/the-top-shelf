@@ -109,7 +109,6 @@
         <h6>Deleting {{cocktail.cocktail_name.title()}} is irreversible</h6>
     </div>
     <div class="modal-footer">
-        <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
         <a href="{{url_for('delete_cocktail', cocktail_name = cocktail.cocktail_name)}}"
             class="card-btn  red accent-3 waves-effect waves-light btn">Delete {{cocktail.cocktail_name.title()}}</a>
         <a href="#"
