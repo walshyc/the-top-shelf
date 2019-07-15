@@ -1,19 +1,15 @@
 {% extends  'base.html' %}
 {% block title %}
+<!-- Displays the Cocktail name in the page title -->
 <title>{{cocktail.cocktail_name.title()}} - The Top Shelf</title>
 {% endblock %}
 
 {% block slider %}
-
+<!-- Creates a full width image of the chosen cocktail -->
 <div id="category-slider" class="slider">
     <ul class="slides">
         <li>
             <img src="{{cocktail.image}}">
-
-            <!-- <div class="caption center-align">
-                <h3></h3>
-                <h5 class="light grey-text text-lighten-3">{{cocktail.short}}</h5>
-            </div> -->
         </li>
 
 
@@ -25,68 +21,85 @@
 {% block content %}
 <div class="row">
     <div class="col s12">
+        <!-- Shows the name and description of the chose cocktail -->
         <h1 class="cyan-text">{{cocktail.cocktail_name.title()}}</h1>
         <p class="flow-text">{{cocktail.short}}</p>
     </div>
 </div>
 <div class="row">
     <div class="col s12 m6">
+        <!-- Cockatil Ingredients -->
         <p class="flow-text cyan-text bold">Ingredients for {{cocktail.cocktail_name.title()}}</p>
         <table class=" highlight">
+
+            <!-- Loop to retrieve all the ingredients in the chosen cockatil -->
             {% for ing in cocktail.ingredients %}
-            {% if ing.ing_amount %}
-            <tr>
-                <td class="ing_table"><i class="material-icons cyan-text">
-                    keyboard_arrow_right
-                    </i><span> {{ing.ing_amount.capitalize()}} {{ing.ing_name.title()}}</span></td>
-            </tr>
-            {% endif %}
+
+                <!-- checks that each ingredient contains data -->
+                {% if ing.ing_amount %}
+                    <tr>
+
+                        <!-- Displays each ingredient name and amount as a row in the table -->
+                        <td class="ing_table"><i class="material-icons cyan-text">
+                                keyboard_arrow_right
+                            </i><span> {{ing.ing_amount.capitalize()}} {{ing.ing_name.title()}}</span></td>
+                    </tr>
+                {% endif %}
             {% endfor %}
 
         </table>
-        
+
     </div>
 
 
     <div class="col s12 m6">
+        <!-- Cockatil Method -->
         <p class="flow-text cyan-text bold">How to make a {{cocktail.cocktail_name.title()}}</p>
 
         <table class=" highlight">
+            <!-- Loop to retrieve all the steps in the chosen cockatil -->
             {% for step in cocktail.method %}
-            {% if step.step_text %}
-            <tr>
-                <!-- <td><span class="step">{{loop.index}}.</span><span class="indent"> {{step.step_text}}</span></td> -->
-                <td class="ing_table"><i class="material-icons cyan-text">
-                    filter_{{loop.index}}
-                    </i><span></td>
+
+                 <!-- checks that each step contains data -->
+                {% if step.step_text %}
+                    <tr>
+                         <!-- Displays each step as a row in the table -->
+                        <td class="ing_table"><i class="material-icons cyan-text">
+                                filter_{{loop.index}}
+                            </i><span></td>
                         <td> {{step.step_text}}</td>
-            </tr>
-            {% endif %}
+                    </tr>
+                {% endif %}
             {% endfor %}
 
         </table>
 
     </div>
-   
-    
-   
+
+
+
 </div>
 
-{% if session['username'] %}
+<!-- Checks if a user is logged in and if they uploaded this cocktail-->
+{% if session['username'] == cocktail.added_by  %}
 <div class="row center-align">
 
-        <div class="col s6"><a href="{{url_for('edit_cocktail', cocktail_name = cocktail.cocktail_name)}}"
-                class="card-btn cyan waves-effect waves-light btn"><i class="small material-icons left">edit</i>Edit</a>
-        </div>
-        <div class="col s6"><a href="{{url_for('delete_cocktail', cocktail_name = cocktail.cocktail_name)}}" class="card-btn  red accent-3 waves-effect waves-light btn"><i class="small material-icons left">remove_circle</i>Delete</a>
-        </div>
+    <!-- If the correct user is logged in they can edit or delete the cocktail  -->
+    <div class="col s6"><a href="{{url_for('edit_cocktail', cocktail_name = cocktail.cocktail_name)}}"
+            class="card-btn cyan waves-effect waves-light btn"><i class="small material-icons left">edit</i>Edit</a>
     </div>
+    <div class="col s6"><a href="{{url_for('delete_cocktail', cocktail_name = cocktail.cocktail_name)}}"
+            class="card-btn  red accent-3 waves-effect waves-light btn"><i
+                class="small material-icons left">remove_circle</i>Delete</a>
+    </div>
+</div>
 {% endif %}
 <div class="row">
-        <div class="col s12 right-align">
-            <h6>{{cocktail.cocktail_name}} was uploaded by {{cocktail.added_by.title()}}</h6>
-        </div>
+    <div class="col s12 right-align">
+        <!-- Shows the user who uploaded the cocktail -->
+        <h6>{{cocktail.cocktail_name}} was uploaded by {{cocktail.added_by.title()}}</h6>
     </div>
+</div>
 
 
 {% endblock %}

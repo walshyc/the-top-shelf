@@ -42,6 +42,10 @@
           src="/static/img/logo-small.png" alt="The Top Shelf Logo"></a></li>
     <li><a class="black-text" href="{{url_for('add_cocktail')}}"><i class="material-icons left">note_add</i>Add a
         Cocktail</a></li>
+    <li>
+        <a class="black-text" href="{{url_for('user_drinks', username = user)}}"><i
+          class="material-icons">local_bar</i> View your Cocktails</a>
+    </li>
     <li><a class="black-text" href="{{url_for('logout')}}"><i class="material-icons left">highlight_off</i>Logout</a>
     </li>
   </ul>

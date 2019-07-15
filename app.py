@@ -100,6 +100,7 @@ def cocktail_id_long(category_name, cocktail_name):
      the_category = mongo.db.categories.find_one({"category_name": category_name})
      all_cocktails = mongo.db.cocktails.find()
      the_cocktail = mongo.db.cocktails.find_one({"cocktail_name": cocktail_name})
+     
      return render_template("single.html", category = the_category, categories=mongo.db.categories.find(),  cocktails = mongo.db.cocktails.find(), cocktail = the_cocktail)
 
 

@@ -3,30 +3,38 @@
 <title>The Top Shelf</title>
 {% endblock %}
 {% block slider %}
+<!-- Slider to show a selection of the cocktails in the database -->
 <div class="slider">
     <ul class="slides">
+        <!-- Loops through the cocktails in the database -->
         {% for cocktails in cocktails %}
-        {% if loop.index < 8 %}
-        {% if loop.index % 2 != 0 %}
-        <li>
-            <img class="cocktail-img" src="{{cocktails.image}}">
-            <!-- random image -->
-            <div class="caption right-align hero-text">
-                <h3 class="black-text">{{cocktails.cocktail_name.title()}}</h3>
-                <p class="black-text short-desc">{{cocktails.short}}</p>
-            </div>
-        </li>
-        {% else %}
-        <li>
-            <img class="cocktail-img" src="{{cocktails.image}}">
-            <!-- random image -->
-            <div class="caption left-align hero-text">
-                <h3 class="black-text">{{cocktails.cocktail_name.title()}}</h3>
-                <p class="black-text short-desc">{{cocktails.short}}</p>
-            </div>
-        </li>
-        {% endif %}
-        {% endif %}
+            <!-- Limits the loop to a max of 7 cocktails  -->
+            {% if loop.index < 8 %}
+                <!-- Alternates the alkignment of the text based on an odd or even loop index  -->
+                {% if loop.index % 2 != 0 %}
+                <li>
+                    <!-- Displays the cocktail image -->
+                    <img class="cocktail-img" src="{{cocktails.image}}">
+                    
+                    <!-- Displays the cocktails name and description with the text right aligned -->
+                    <div class="caption right-align hero-text">
+                        <h3 class="black-text">{{cocktails.cocktail_name.title()}}</h3>
+                        <p class="black-text short-desc">{{cocktails.short}}</p>
+                    </div>
+                </li>
+                {% else %}
+                <li>
+                    <!-- Displays the cocktail image -->
+                    <img class="cocktail-img" src="{{cocktails.image}}">
+                    
+                    <!-- Displays the cocktails name and description with the text left aligned -->
+                    <div class="caption left-align hero-text">
+                        <h3 class="black-text">{{cocktails.cocktail_name.title()}}</h3>
+                        <p class="black-text short-desc">{{cocktails.short}}</p>
+                    </div>
+                </li>
+                {% endif %}
+            {% endif %}
         {% endfor %}
 
     </ul>
@@ -34,10 +42,12 @@
 {% endblock %}
 {% block content %}
 
+<!-- Checks if the user is logged in -->
 {% if user %}
 <div class="row">
     <div class="col s12">
         <div class="card cyan">
+            <!-- Welcome message to the user -->
             <div class="card-content black-text center-align">
                 <span class="card-title">Welcome {{session['username'].title()}}</span>
 
@@ -45,10 +55,12 @@
 
             <div class="center-align">
                 <div class="row">
+                    <!-- Allows a logged in user to add a new cocktail -->
                     <div class="col s12 m6 home_user">
                         <a class="black-text ing_table" href="{{url_for('add_cocktail')}}"><i
                                 class="material-icons">note_add</i> Add a Cocktail</a>
                     </div>
+                    <!-- Allows a logged in user to view the cocktails they have added -->
                     <div class="col s12 m6 home_user">
                         <a class="black-text ing_table" href="{{url_for('user_drinks', username = user)}}"><i
                                 class="material-icons">local_bar</i> View your Cocktails</a>
@@ -59,16 +71,17 @@
     </div>
 
 </div>
-{% else %}
-
 {% endif %}
 
 <div class="row">
+    <!--  Loops through the categories to show all categories -->
     {% for categories in categories %}
     <div class="col s12 m6 l4">
+        <!-- Adds a link to the category page -->
         <a href="{{url_for('category_name',category_name=categories.category_name)}}" class="black-text  ">
             <div class="card cyan">
                 <div class="card-image">
+                    <!-- Displays the category image -->
                     <img src="{{categories.category_image}}">
                 </div>
                 <div class="card-content center-align">

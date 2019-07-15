@@ -4,12 +4,14 @@
 {% endblock %}
 {% block slider %}
 
+
+<!-- Displays the Image and tagline of the category chosen -->
 <div id="category-slider" class="slider">
     <ul class="slides">
         <li>
             <img src="{{category.category_image}}">
 
-            
+
             <div class="caption center-align hero-text">
                 <h3 class="black-text">{{category.category_name.capitalize()}}</h3>
                 <p class="black-text short-desc">{{category.category_tagline}}</p>
@@ -24,26 +26,39 @@
 {% block content %}
 <div class="row">
 
+    <!-- Loops through each cocktail in the database -->
     {% for cocktails in cocktails %}
 
-    {% if cocktails.cocktail_base == category.category_name  %}
-    <div class="col s12 m6 ">
-        <a class="" href="{{url_for('cocktail_id_long', category_name= category.category_name, cocktail_name =cocktails.cocktail_name)}}"><div class="card">
-            <div class="card-image">
-                <img src="{{cocktails.image}}">
-                
-            </div>
-            <div class="card-content">
-                <span class="card-title cyan-text text-darken-2 card-link-text">{{cocktails.cocktail_name.title()}}</span>
-                <p class="truncate black-text">{{cocktails.short}}</p>
-            </div>
-            <div class="card-action">
-                <span class="cyan-text text-darken-2 card-link-text" >View {{cocktails.cocktail_name}}</span>
-            </div>
+        <!-- Checks if the cocktail is part of the chosen category -->
+        {% if cocktails.cocktail_base == category.category_name  %}
+        <div class="col s12 m6 ">
+
+            <!-- Adds a link to the cockatil -->
+            <a class=""
+                href="{{url_for('cocktail_id_long', category_name= category.category_name, cocktail_name =cocktails.cocktail_name)}}">
+                <div class="card">
+
+                    <!-- Displays the cocktails image -->
+                    <div class="card-image">
+                        <img src="{{cocktails.image}}">
+
+                    </div>
+
+                    <!-- Displays the cocktail name and short description -->
+                    <div class="card-content">
+                        <span
+                            class="card-title cyan-text text-darken-2 card-link-text">{{cocktails.cocktail_name.title()}}</span>
+                        <p class="truncate black-text">{{cocktails.short}}</p>
+                    </div>
+
+                    <!-- Call to action for the user to view the cocktail -->
+                    <div class="card-action">
+                        <span class="cyan-text text-darken-2 card-link-text">View {{cocktails.cocktail_name}}</span>
+                    </div>
+                </div>
+            </a>
         </div>
-    </a>
-    </div>
-    {% endif%}
+        {% endif%}
 
     {% endfor %}
 </div>
