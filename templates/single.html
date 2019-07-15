@@ -35,16 +35,16 @@
             <!-- Loop to retrieve all the ingredients in the chosen cockatil -->
             {% for ing in cocktail.ingredients %}
 
-                <!-- checks that each ingredient contains data -->
-                {% if ing.ing_amount %}
-                    <tr>
+            <!-- checks that each ingredient contains data -->
+            {% if ing.ing_amount %}
+            <tr>
 
-                        <!-- Displays each ingredient name and amount as a row in the table -->
-                        <td class="ing_table"><i class="material-icons cyan-text">
-                                keyboard_arrow_right
-                            </i><span> {{ing.ing_amount.capitalize()}} {{ing.ing_name.title()}}</span></td>
-                    </tr>
-                {% endif %}
+                <!-- Displays each ingredient name and amount as a row in the table -->
+                <td class="ing_table"><i class="material-icons cyan-text">
+                        keyboard_arrow_right
+                    </i><span> {{ing.ing_amount.capitalize()}} {{ing.ing_name.title()}}</span></td>
+            </tr>
+            {% endif %}
             {% endfor %}
 
         </table>
@@ -60,16 +60,16 @@
             <!-- Loop to retrieve all the steps in the chosen cockatil -->
             {% for step in cocktail.method %}
 
-                 <!-- checks that each step contains data -->
-                {% if step.step_text %}
-                    <tr>
-                         <!-- Displays each step as a row in the table -->
-                        <td class="ing_table"><i class="material-icons cyan-text">
-                                filter_{{loop.index}}
-                            </i><span></td>
-                        <td> {{step.step_text}}</td>
-                    </tr>
-                {% endif %}
+            <!-- checks that each step contains data -->
+            {% if step.step_text %}
+            <tr>
+                <!-- Displays each step as a row in the table -->
+                <td class="ing_table"><i class="material-icons cyan-text">
+                        filter_{{loop.index}}
+                    </i><span></td>
+                <td> {{step.step_text}}</td>
+            </tr>
+            {% endif %}
             {% endfor %}
 
         </table>
@@ -88,9 +88,11 @@
     <div class="col s6"><a href="{{url_for('edit_cocktail', cocktail_name = cocktail.cocktail_name)}}"
             class="card-btn cyan waves-effect waves-light btn"><i class="small material-icons left">edit</i>Edit</a>
     </div>
-    <div class="col s6"><a href="{{url_for('delete_cocktail', cocktail_name = cocktail.cocktail_name)}}"
-            class="card-btn  red accent-3 waves-effect waves-light btn"><i
+    <div class="col s6">
+
+        <a class="card-btn red accent-3 waves-effect waves-light btn modal-trigger" href="#deleteModal"><i
                 class="small material-icons left">remove_circle</i>Delete</a>
+
     </div>
 </div>
 {% endif %}
@@ -98,6 +100,20 @@
     <div class="col s12 right-align">
         <!-- Shows the user who uploaded the cocktail -->
         <h6>{{cocktail.cocktail_name}} was uploaded by {{cocktail.added_by.title()}}</h6>
+    </div>
+</div>
+
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <h4>Are you sure?</h4>
+        <h6>Deleting {{cocktail.cocktail_name.title()}} is irreversible</h6>
+    </div>
+    <div class="modal-footer">
+        <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+        <a href="{{url_for('delete_cocktail', cocktail_name = cocktail.cocktail_name)}}"
+            class="card-btn  red accent-3 waves-effect waves-light btn">Delete {{cocktail.cocktail_name.title()}}</a>
+        <a href="#"
+            class="modal-close card-btn cyan waves-effect waves-light btn">Cancel</a>
     </div>
 </div>
 
