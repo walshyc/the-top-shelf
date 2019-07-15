@@ -9,10 +9,12 @@
 <h3>Add a Cocktail</h3>
 
 <div class="row">
+    <!-- Form for user to upload a new cocktail -->
     <form id="addcocktail" action="{{url_for('insert_cocktail')}}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">category</i>
+                <!-- Dropdown menu to allow the user to select from the predefined categories -->
                 <select id="cocktail_category" name="cocktail_base" class="icons">
                     <option value="" disabled selected>Choose a category</option>
                     {% for cat in categories %}
@@ -24,7 +26,7 @@
             </div>
             <div class="input-field col s12 m6">
                 <i class="material-icons prefix">local_bar</i>
-
+                <!-- User can enter the cocktail name -->
                 <input name="cocktail_name" id="cocktail_name" type="text" class="validate cyan-text" required>
                 <label for="cocktail_name">Cocktail Name</label>
             </div>
@@ -32,7 +34,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">local_bar</i>
-
+                <!-- User can enter the cocktail image URL -->
                 <input name="cocktail_url" id="cocktail_url" type="text" class="validate cyan-text" required>
                 <label for="cocktail_url">Image URL</label>
             </div>
@@ -41,8 +43,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">description</i>
-
-                <textarea name="short" id="cocktail_short" class="materialize-textarea cyan-text" data-length="160" required></textarea>
+                <!-- User can enter the cocktail description -->
+                <textarea name="short" id="cocktail_short" class="materialize-textarea cyan-text" data-length="160"
+                    required></textarea>
                 <label for="cocktail_short">Cocktail Short Description</label>
             </div>
         </div>
@@ -53,8 +56,10 @@
                     <h4>Ingredients</h4>
                 </div>
                 <div id="ingredients-list">
+                    <!-- User can enter the ingredients required -->
                     <div class="input-field col s6">
-                        <input type="text" id="ingredient_name0" name="ingredient_name0" class="materialize-textarea" required>
+                        <input type="text" id="ingredient_name0" name="ingredient_name0" class="materialize-textarea"
+                            required>
                         <label for="ingredient_name0">Ingredient</label>
                     </div>
                     <div class="input-field col s6">
@@ -62,9 +67,10 @@
                             class="materialize-textarea" required>
                         <label for="ingredient_amount0">Amount</label>
                     </div>
-                </div>
 
+                </div>
                 <div class="col s12 center-align">
+                    <!-- The add and remove buttons allow the user to add more ingredients fields or delete a field as required -->
                     <a id="add_ing" class="waves-effect waves-light btn-small cyan"><i
                             class="material-icons left">add</i>Add ingredient</a>
                     <a id="remove_ing" class="waves-effect waves-light btn-small red accent-3" style="display: none"><i
@@ -82,12 +88,13 @@
                     <h4>Method</h4>
                 </div>
                 <div id="method-list">
+                    <!-- User can enter the steps required to make the cocktail -->
                     <div class="input-field col s12">
                         <input type="text" id="method0" name="method0" class="materialize-textarea validate" required>
                         <label for="method0">Enter step details</label>
                     </div>
                 </div>
-
+                <!-- The add and remove buttons allow the user to add more steps or delete a step as required -->
                 <div class="col s12 center-align">
                     <a id="add_step" class="waves-effect waves-light btn-small cyan"><i
                             class="material-icons left">add</i>Add step</a>
@@ -101,6 +108,7 @@
         </div>
         <div class="row">
             <div class="col s12 right-align">
+                <!-- User can submit the new recipe with this button -->
                 <button class="btn waves-effect waves-light cyan" type="submit" name="action">Upload Cocktail
                     <i class="material-icons right">send</i>
                 </button>

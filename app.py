@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, jsonify
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import bcrypt
@@ -92,6 +92,7 @@ def user_drinks(username):
         user = session['username']
     user_drinks = mongo.db.categories.find()
     the_category = mongo.db.categories.find_one()
+
     return render_template("user_cocktails.html", categories=mongo.db.categories.find(), cocktails=mongo.db.cocktails.find(), category=the_category, user=user)
 
 @app.route('/categories/<category_name>/<cocktail_name>')
@@ -239,6 +240,7 @@ def update_cocktail(cocktail_name):
 def delete_cocktail(cocktail_name):
     mongo.db.cocktails.remove({"cocktail_name": cocktail_name})
     return redirect(url_for('categories'))
+
     
 
 if __name__ == "__main__":

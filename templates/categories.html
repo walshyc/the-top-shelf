@@ -7,14 +7,21 @@
 <h1 class="center-align">Categories</h1>
 <h4 class="center-align">Select a category below</h4>
 <div class="row">
+    <!-- Loop to add all the Categories in the database -->
     {% for categories in categories %}
     <div class="col s12 m4">
+
+        <!-- Link to bring the user to the cocktails listed under each category -->
         <a href="{{url_for('category_name',category_name=categories.category_name)}}" class="black-text  ">
             <div class="card cyan">
                 <div class="card-image">
+
+                    <!-- Category Image -->
                     <img src="{{categories.category_image}}">
                 </div>
                 <div class="card-content center-align">
+                    
+                    <!-- Category name in uppercase -->
                     <span class="card-title activator black-text center-align ">
                         {{categories.category_name.upper()}}</span>
                 </div>
