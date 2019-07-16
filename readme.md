@@ -10,6 +10,9 @@ The Top Shelf is a website for all your cocktail needs. Featuring cocktail recip
 [Mobile](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Mobile-Homepage.png)
 
 
+#### Database Schema
+The database schema that I sued for the project can be found [Here]()
+
 #### About the Website
 This website is for anyone who may need a cockatil recipe for an event they are hosting or if they just want to expirement with any alcohol they have at home. 
 
@@ -36,12 +39,29 @@ A user who is looking for a non-alcolohic cockatil would navigate to the Mocktai
 
 ## Technologies Used
 
+
+- [Flask](https://palletsprojects.com/p/flask/)
+    - The project uses **Flask** and **Python 3** to render the HTML webpages. Flask is a micro web framework written in the Python programming language. Flask has many resources that aid with the development of web apps. Some of the resources I used were:
+         - render_template
+         - redirect
+         - request
+         - url_for
+         - session
+
+- [Jinga2](http://jinja.pocoo.org/)
+    - The project uses the **Jinga2** templating engine to add dynamic content to the various webpages throughtout the project. Jinga2 allows the use of loops and conditional statements. 
+
 - [Materialize CSS](https://materializecss.com)
     - The project uses **Materialize CSS** for general page styling and layout.
 
 - [jQuery](https://jQuery.com)
     - The project uses **jQuery** to make sure some of the Materialize CSS components (dropdown menus in forms, image sliders & modals) work correctlty. jQuery was also used to allow extra ingredients and instructions be added to the 'Add a cocktail' form.
 
+- [Material Icons](https://material.io/tools/icons/)
+    - The project uses **Material Icons** for any icons that are used in the website. The use of icons makes the website easier to read and understand for the user.
+
+- [Google Fonts](https://fonts.google.com/)
+    - The project uses **Google Fonts** for the Playfair font that is used throughout the website.
 
 
 #### To be completed
