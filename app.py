@@ -254,7 +254,7 @@ def update_cocktail(cocktail_name):
         },
                          {
             "step_text": request.form.get('method5')
-        },
+        }
                      ]
     })
     return redirect(url_for('categories'))
