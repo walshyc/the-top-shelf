@@ -14,7 +14,7 @@
         {% if loop.index % 2 != 0 %}
         <li>
             <!-- Displays the cocktail image -->
-            <img class="cocktail-img" src="{{cocktails.image}}">
+            <img class="cocktail-img" src="{{cocktails.image}}" alt="{{cocktails.cocktail_name}}">
 
             <!-- Displays the cocktails name and description with the text right aligned -->
             <div class="caption right-align hero-text">
@@ -25,7 +25,7 @@
         {% else %}
         <li>
             <!-- Displays the cocktail image -->
-            <img class="cocktail-img" src="{{cocktails.image}}">
+            <img class="cocktail-img" src="{{cocktails.image}}" alt="{{cocktails.cocktail_name}}">
 
             <!-- Displays the cocktails name and description with the text left aligned -->
             <div class="caption left-align hero-text">
@@ -104,7 +104,7 @@
             <div class="card cyan">
                 <div class="card-image">
                     <!-- Displays the category image -->
-                    <img src="{{categories.category_image}}">
+                    <img src="{{categories.category_image}}" alt="{{categories.category_name}}">
                 </div>
                 <div class="card-content center-align">
                     <span class="card-title activator black-text center-align ">
