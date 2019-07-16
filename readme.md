@@ -15,7 +15,7 @@ The Top Shelf is a website for all your cocktail needs. Featuring cocktail recip
 
 ##### Add a Cocktail
 [Desktop](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Desktop-Add_a_drink.png)
-[Mobile](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Mobile-Add_a_drink.png)
+[Mobile](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Mobile-Add_a_Drink.png)
 
 ##### Single Cocktail
 [Desktop](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Desktop-single_drink.png)
