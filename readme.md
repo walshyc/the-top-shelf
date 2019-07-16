@@ -1,6 +1,6 @@
 # The Top Shelf
 
-The Top Shelf is a website for all your cocktail needs. Featuring cocktail recipes for 9 categories of alcohol from Gin to Whiskey and even some Mocktails. Users can register an account to allow them to add a new recipe to the website or edit any existing recipe that they had previously added. 
+The Top Shelf is a website for all your cocktail needs. Featuring cocktail recipes for 9 categories of alcohol from Gin to Whiskey and even some Mocktails. Users can register an account to allow them to add a new recipe to the website or edit any existing recipe that they had previously added. The project uses MongoDB as the database to store all the information and recipes for the website.
 
 The project can be viewed [here](http://the-top-shelf.herokuapp.com/)
  
@@ -77,6 +77,9 @@ A user who is looking for a non-alcolohic cockatil would navigate to the Mocktai
 - [Google Fonts](https://fonts.google.com/)
     - The project uses **Google Fonts** for the Playfair font that is used throughout the website.
 
+- [MongoDB](https://mongodb.com)
+    - The project uses **MongoDB** to store all the recipes and user information. CRUD (create, read, update & delete) tasks are preformed on the database when users login, register, add a new cocktail, delete a new cocktail etc.
+
 - Bycrypt
     -This project uses Bycrypt to store and encrypted hashed version of a users password in the database. By hashing a user password the password is stored more securly.
 
@@ -116,4 +119,10 @@ I used [Heroku](https://www.heroku.com/) to deploy the project. The project can 
 
 I had to create a Procfile and a requirements.txt file in the root of my project to deploy it successfully to Heroku. The Procfile tells Heroku what commands it needs to run. The reuqimrenets.txt file tells Heroku what Python librarires it needs to install for the project to run correctly.
 
-I created 4 test users to help with testing the website functionality and populating the database with the usernames - david, susan, claire and tom. The password for each acount is password. Each user has a number of cocktails assoThe username david has the most cocktails added to the database.
+Heroku also required some Envirnomental Variables to be added for the IP, PORT and the MONGO_URI which is the link to the MongoDB database.
+
+I created 4 test users to help with testing the website functionality and populating the database with the usernames - david, susan, claire and tom. The password for each acount is password. Each user has a number of cocktails added by them. The username david has the most cocktails added to the database.
+
+## Credits
+
+I took all cocktail recipes and images from the [BBC Good Food](https://www.bbcgoodfood.com/) website. I used a number of lectures from the Code Institute course to help me with the project as well as Stack Overflow and videos from YouTube on Flask Web Development.
