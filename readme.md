@@ -9,9 +9,21 @@ The Top Shelf is a website for all your cocktail needs. Featuring cocktail recip
 [Desktop](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Desktop-Homepage.png)
 [Mobile](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Mobile-Homepage.png)
 
+##### Category Page
+[Desktop](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Desktop-Category.png)
+[Mobile](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Mobile-Category.png)
+
+##### Add a Cocktail
+[Desktop](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Desktop-Add_a_drink.png)
+[Mobile](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Mobile-Add_a_drink.png)
+
+##### Single Cocktail
+[Desktop](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Desktop-single_drink.png)
+[Mobile](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Mobile-single_drink.png)
+
 
 #### Database Schema
-The database schema that I sued for the project can be found [Here]()
+The database schema that I sued for the project can be found [Here](https://github.com/walshyc/the-top-shelf/blob/master/static/schema.txt)
 
 #### About the Website
 This website is for anyone who may need a cockatil recipe for an event they are hosting or if they just want to expirement with any alcohol they have at home. 
