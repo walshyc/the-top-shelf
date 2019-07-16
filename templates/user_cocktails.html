@@ -22,7 +22,7 @@
         <!-- Checks and displays all cockatils that have been added by the logged in user -->
         {% if cocktails.added_by == session['username']  %}
 
-        <div class="col s12 l6">
+        <div class="col s12 m6 l4">
             <!-- Displays a link to the cocktail -->
             <a class=""
                 href="{{url_for('cocktail_id_long', category_name= category.category_name, cocktail_name =cocktails.cocktail_name)}}">

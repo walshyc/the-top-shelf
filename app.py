@@ -127,7 +127,7 @@ def category_name(category_name):
     cocktails = mongo.db.cocktails.find()
     return render_template("drink.html", categories=categories, category=the_category, cocktails=cocktails)
 
-# Diaplsy the logged in users list of cockatils and gives them options for editing or deleting
+# Display the logged in users list of cockatils and gives them options for editing or deleting
 @app.route('/<username>')
 def user_drinks(username):
     if 'username' in session:
