@@ -1,6 +1,8 @@
 # The Top Shelf
 
 The Top Shelf is a website for all your cocktail needs. Featuring cocktail recipes for 9 categories of alcohol from Gin to Whiskey and even some Mocktails. Users can register an account to allow them to add a new recipe to the website or edit any existing recipe that they had previously added. 
+
+The project can be viewed [here](http://the-top-shelf.herokuapp.com/)
  
 ## UX
 
@@ -75,25 +77,43 @@ A user who is looking for a non-alcolohic cockatil would navigate to the Mocktai
 - [Google Fonts](https://fonts.google.com/)
     - The project uses **Google Fonts** for the Playfair font that is used throughout the website.
 
+- Bycrypt
+    -This project uses Bycrypt to store and encrypted hashed version of a users password in the database. By hashing a user password the password is stored more securly.
 
 
 
 ## Testing
+#### Validation
+
+I ran all the HTML file's through a HTML validator on [HTML Validator](https://validator.w3.org). SOme pages initially showed up with errors as I had forgot to use the ALT attribute on quite a few images. I went back and rectified this. On the single cocktail page I also had a an open span tag that was never closed, so I removed the tag.
+
+I used [CSS Validator](https://jigsaw.w3.org/css-validator) to validate my CSS file style.css, this proved to be all correct.
+
+I also used [Color.review](https://color.review/) to to select the Cyan color from the Materialize CSS color palette as this color worked good with both black and white text.
+
+#### Browser Support
+
+I have tested the site functionality across Google Chrome, Safari & Firefox on both desktop and mobile viewports. I tested the website across a number of devices also - Windows Desktop, Macbook, Apple iOS on iPhone 7 and iPad Pro and on a Huawei P20. I also used the Google Chrome developer tools to simulate a number of other devices to ensure the website displayed and wqorked correctly. The website required a few minor changes to ensure it worked corectly and looked the same across each browser and on the devices I used for testing.
 
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+#### Login/Register
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+I have simulated a number of scenarios on the login and register process. I decided the make the username case insensitive to make the process more user friendly. I tried to register as a new user without suppling a password which failed as expected. I also tried to login with incorrect username and password combinations which also failed. Another simulation I preformed was where I tried to register a new user with a username that already existed, this also failed.
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+#### Adding a New Cocktail
 
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+On the Add Cocktail page the user must fill in each element of the form before they can sumbit the new recipe to the database. I tried on numerous occassions to submit the form with a seperate input missing from the form on each occassion. The form did not submit and a message is displayed to the user that they need to fill in all elements of the form.
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+The user can add extra ingredients or step inputs by using th ebuttons provided. I tested the adding and remove buttons and they worked as I wished.
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.mpleted
+#### Editing a Cocktail
+
+When a user wishes to edit a cocktail the form is pre populated with all the existing information on the selected cocktail. I tested editing one piece of data on a cockatil and also adding and removing new ingedients and instruction steps. The cocktail record was updated int he database as expected with each test.
+
+## Deployment
+
+I used [Heroku](https://www.heroku.com/) to deploy the project. The project can be viewed [here](http://the-top-shelf.herokuapp.com/)
+
+I had to create a Procfile and a requirements.txt file in the root of my project to deploy it successfully to Heroku. The Procfile tells Heroku what commands it needs to run. The reuqimrenets.txt file tells Heroku what Python librarires it needs to install for the project to run correctly.
+
+I created 4 test users to help with testing the website functionality and populating the database with the usernames - david, susan, claire and tom. The password for each acount is password. Each user has a number of cocktails assoThe username david has the most cocktails added to the database.
