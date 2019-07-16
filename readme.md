@@ -115,7 +115,17 @@ When a user wishes to edit a cocktail the form is pre populated with all the exi
 
 ## Deployment
 
-I used [Heroku](https://www.heroku.com/) to deploy the project. The project can be viewed [here](http://the-top-shelf.herokuapp.com/)
+### Github
+
+I regulary committed changes to Github thorugh the source control feature on Visual Studio Code. I used a short commit message to reflect each new change that was made in each commit. At last count I had over 60 commits on this project.
+
+After I had completed each minor step on the website such as getting the Google Map to appear, getting the country buttons aligned correctly I committed the changes to the Github repository along with a short message. This made it easy to fall back on old commits when needed.
+
+### Heroku
+
+I used [Heroku](https://www.heroku.com/) to deploy the project. The project can be viewed [here](http://the-top-shelf.herokuapp.com/).
+
+After each commit to Github I would use the command 'git push heroku master' in the terminal to push the project to Heroku so that the latest version of the site could be viewed.
 
 I had to create a Procfile and a requirements.txt file in the root of my project to deploy it successfully to Heroku. The Procfile tells Heroku what commands it needs to run. The reuqimrenets.txt file tells Heroku what Python librarires it needs to install for the project to run correctly.
 
