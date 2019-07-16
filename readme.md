@@ -6,8 +6,8 @@ The Top Shelf is a website for all your cocktail needs. Featuring cocktail recip
 
 #### Wireframes
 ##### Homepage
-[Desktop](static/img/wireframes/Desktop-Homepage.png)
-[Mobile](static/img/wireframes/Mobile-Homepage.png)
+[Desktop](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Desktop-Homepage.png)
+[Mobile](https://raw.githubusercontent.com/walshyc/the-top-shelf/master/static/img/wireframes/Mobile-Homepage.png)
 
 
 #### About the Website

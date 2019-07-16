@@ -183,6 +183,9 @@ def insert_cocktail():
         {
             "step_text": request.form.get('method4')
         },
+        {
+            "step_text": request.form.get('method5')
+        }
     ]
     })
 
