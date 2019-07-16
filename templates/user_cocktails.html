@@ -41,12 +41,11 @@
                     <div class="row center-align">
                         <!-- Shows buttons for the user to edit or delete the cockatils that thye have created -->
                         <div class="col s6"><a href="{{url_for('edit_cocktail', cocktail_name = cocktails.cocktail_name)}}"
-                                class="card-btn cyan waves-effect waves-light btn"><i class="small material-icons left">edit</i>Edit</a>
+                                class="card-btn cyan waves-effect waves-light btn">Edit</a>
                         </div>
                         <div class="col s6">
 
-                                <a class="card-btn red accent-3 waves-effect waves-light btn modal-trigger" href="#deleteModal-{{loop.index}}"><i
-                                        class="small material-icons left">remove_circle</i>Delete</a>
+                                <a class="card-btn red accent-3 waves-effect waves-light btn modal-trigger" href="#deleteModal-{{loop.index}}">Delete</a>
                         
                             </div>
                     </div>
