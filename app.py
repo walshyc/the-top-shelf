@@ -46,8 +46,17 @@ def login():
     users = mongo.db.users
     login_user = users.find_one({'name': request.form['username'].lower()})
 
+
+    if request.form['password'] == "" :
+            error = "Password can't be empty"
+            return render_template('user.html', error_msg_login=error)
+
+    elif request.form['username'] == "" :
+            error = "Username can't be empty"
+            return render_template('user.html', error_msg_login=error)
+
     # Checks if the user is logged in
-    if login_user:
+    elif login_user:
         # Checks if the password entered matches the password in the database
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
             session['username'] = request.form['username'].lower()
@@ -66,8 +75,18 @@ def register():
         existing_user = users.find_one(
             {'name': request.form['username'].lower()})
 
+        # Checks is the password field is empty
+        if request.form['password'] == "" :
+            error = "Password can't be empty"
+            return render_template('user.html', error_msg_register=error)
+        
+        #Checks if the password field is empty
+        elif request.form['username'] == "" :
+            error = "Username can't be empty"
+            return render_template('user.html', error_msg_register=error)
+
         # Checks if the username doesn't already exist
-        if existing_user is None:
+        elif existing_user is None:
             # Creates a hash of the password to ensure it is stored securly in the database
             hashpassword = bcrypt.hashpw(
                 request.form['password'].encode('utf-8'), bcrypt.gensalt())
@@ -77,10 +96,12 @@ def register():
                 {'name': request.form['username'].lower(), 'password': hashpassword})
             session['username'] = request.form['username'].lower()
             return redirect(url_for('home'))
+
         else:
             # Gives an error message if the username already exists in the database
             error = 'This username already exists'
             return render_template('user.html', error_msg_register=error)
+
 
     return render_template('user.html')
 
