@@ -113,6 +113,8 @@ The user can add extra ingredients or step inputs by using the buttons provided.
 
 When a user wishes to edit a cocktail, the form is pre-populated with all the existing information on the selected cocktail. I tested editing one piece of data on a cocktail and also adding and removing new ingredients and instruction steps. The cocktail record was updated int he database as expected with each test.
 
+I also checked to ensure that the Edit and Delet buttons only show on a cocktail that has been added by the logged in user so that they have control of the cocktails they added.
+
 ## Deployment
 
 ### Github
