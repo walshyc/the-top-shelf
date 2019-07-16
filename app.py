@@ -47,14 +47,14 @@ def login():
     login_user = users.find_one({'name': request.form['username'].lower()})
 
     # Checks is the password field is empty
-    if request.form['password'] == "" :
-            error = "Password can't be empty"
-            return render_template('user.html', error_msg_login=error)
+    if request.form['password'] == "":
+        error = "Password can't be empty"
+        return render_template('user.html', error_msg_login=error)
 
     # Checks if the username field is empty
-    elif request.form['username'] == "" :
-            error = "Username can't be empty"
-            return render_template('user.html', error_msg_login=error)
+    elif request.form['username'] == "":
+        error = "Username can't be empty"
+        return render_template('user.html', error_msg_login=error)
 
     # Checks if the user is logged in
     elif login_user:
@@ -63,9 +63,9 @@ def login():
             session['username'] = request.form['username'].lower()
             return redirect(url_for('home'))
         else:
-            error="Incorrect Password"
-            return render_template('user.html', error_msg_login=error)   
-    
+            error = "Incorrect Password"
+            return render_template('user.html', error_msg_login=error)
+
     else:
         # Shows an error if the correct credentials aren't given
         error = 'Incorrect Username/Password combination'
@@ -81,12 +81,12 @@ def register():
             {'name': request.form['username'].lower()})
 
         # Checks is the password field is empty
-        if request.form['password'] == "" :
+        if request.form['password'] == "":
             error = "Password can't be empty"
             return render_template('user.html', error_msg_register=error)
-        
+
         # Checks if the username field is empty
-        elif request.form['username'] == "" :
+        elif request.form['username'] == "":
             error = "Username can't be empty"
             return render_template('user.html', error_msg_register=error)
 
@@ -106,7 +106,6 @@ def register():
             # Gives an error message if the username already exists in the database
             error = 'This username already exists'
             return render_template('user.html', error_msg_register=error)
-
 
     return render_template('user.html')
 
@@ -153,7 +152,7 @@ def cocktail_id_long(category_name, cocktail_name):
 # Route to allow the user to add a new cockatil to the database
 @app.route('/add_cocktail')
 def add_cocktail():
-    categories=mongo.db.categories.find()
+    categories = mongo.db.categories.find()
     return render_template('addcocktail.html', categories=categories)
 
 
