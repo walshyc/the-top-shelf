@@ -46,11 +46,12 @@ def login():
     users = mongo.db.users
     login_user = users.find_one({'name': request.form['username'].lower()})
 
-
+    # Checks is the password field is empty
     if request.form['password'] == "" :
             error = "Password can't be empty"
             return render_template('user.html', error_msg_login=error)
 
+    # Checks if the username field is empty
     elif request.form['username'] == "" :
             error = "Username can't be empty"
             return render_template('user.html', error_msg_login=error)
@@ -61,6 +62,10 @@ def login():
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
             session['username'] = request.form['username'].lower()
             return redirect(url_for('home'))
+        else:
+            error="Incorrect Password"
+            return render_template('user.html', error_msg_login=error)   
+    
     else:
         # Shows an error if the correct credentials aren't given
         error = 'Incorrect Username/Password combination'
@@ -80,7 +85,7 @@ def register():
             error = "Password can't be empty"
             return render_template('user.html', error_msg_register=error)
         
-        #Checks if the password field is empty
+        # Checks if the username field is empty
         elif request.form['username'] == "" :
             error = "Username can't be empty"
             return render_template('user.html', error_msg_register=error)
