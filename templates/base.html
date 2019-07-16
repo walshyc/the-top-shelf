@@ -28,7 +28,6 @@
           alt="The Top Shelf Logo"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
       <ul class="right hide-on-med-and-down black-text">
-
         <li><a class="black-text" href="{{url_for('add_cocktail')}}"><i class="material-icons left">note_add</i>Add a
             Cocktail</a></li>
         <li><a class="black-text" href="{{url_for('logout')}}"><i
@@ -40,6 +39,7 @@
   <ul class="sidenav cyan black-text" id="mobile-demo">
     <li class="logo"><a href="/" class="brand-logo black-text"><img class="responsive-img"
           src="/static/img/logo-small.png" alt="The Top Shelf Logo"></a></li>
+    <li><a class="black-text cursor-default" href="#"><i class="material-icons left">group</i>Hi {{session['username'].title()}}!</a></li>
     <li><a class="black-text" href="{{url_for('add_cocktail')}}"><i class="material-icons left">note_add</i>Add a
         Cocktail</a></li>
     <li>

@@ -1,52 +1,61 @@
+/* General Styles */
+
 body {
     font-family: 'Playfair Display', serif;
 }
 
-
-
-.card-link-text{
-    font-weight: 700!important;
+.bold {
+    font-weight: bold;
 }
 
+/* Buttons */
 
-/* .contrast-text{
-    color: #850100!important;
-} */
-
-.ing-heading{
-    display: inline-block;
-}
-
-.home_user{
-    padding-bottom: 15px!important;
-    font-weight: 600;
-}
-
-.ing-btn{
+.ing-btn {
     width: 50%!important;
 }
 
-.ing_table > i, .ing_table{ vertical-align: middle !important; }
+.custom-btn {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.card-btn {
+    margin: 15px;
+}
+
+.login-btn {
+    margin-bottom: 10px;
+}
+
+/* Ingredients Styling */
+
+.ing-heading {
+    display: inline-block;
+}
+
+.ing_table>i, .ing_table {
+    vertical-align: middle !important;
+}
+
+/* Card Stlying */
+
+.card-link-text {
+    font-weight: 700!important;
+}
 
 .card .card-content {
     padding: 15px!important;
 }
 
-.card-btn{
-    margin: 15px;
+
+/* Homepage */
+
+.home_user {
+    padding-bottom: 15px!important;
+    font-weight: 600;
 }
 
-
-.bold{
-    font-weight: bold;
-}
-
-.cocktail-img{
-  /* background-color: #006064;
-  background-blend-mode: lighten; */
-}
-
-.hero-text{
+.hero-text {
     border-radius: 60px;
     background-color: rgb(0, 188, 212, 0.9);
     padding: 0 40px 20px 40px;
@@ -56,41 +65,48 @@ body {
     font-size: 1.2em;
 }
 
-.custom-btn{
-    font-size: 1.5em;
-    font-weight: bold;
-}
+/* Navbar Styling */
 
 nav.nav-extended .nav-wrapper {
-height: 67px;
+    height: 67px;
 }
 
-.logo{
+.logo {
     padding-bottom: 20px;
     text-align: center;
 }
 
-.sidenav > li > a{
+.sidenav>li>a {
     font-weight: bold;
 }
-/* label focus color */
-.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label, i.prefix {
-    color: #00bcd4 !important;
-   }
 
-/* label underline focus color */
-   .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+.cursor-default {
+    cursor: default;
+}
+
+/* Form Styling */
+
+.input-field input[type=text]:focus+label, .materialize-textarea:focus:not([readonly])+label, i.prefix {
+    color: #00bcd4 !important;
+}
+
+
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #00bcd4 !important;
     box-shadow: 0 1px 0 0 #00bcd4 !important;
-   }
+}
+
+.select-wrapper input.select-dropdown {
+    color: #00bcd4;
+}
 
 /* Media Queries */
+
 @media screen and (min-width: 993px) {
-    nav .brand-logo{
+    nav .brand-logo {
         padding-left: 15px;
     }
 }
-
 
 @media screen and (min-width: 1250px) {
     .card.medium {
