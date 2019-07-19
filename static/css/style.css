@@ -27,6 +27,10 @@ body {
     margin-bottom: 10px;
 }
 
+.back-btn{
+    margin: 20px;
+}
+
 /* Ingredients Styling */
 
 .ing-heading {
@@ -35,6 +39,10 @@ body {
 
 .ing_table>i, .ing_table {
     vertical-align: middle !important;
+}
+
+.title-text{
+    margin: 0 !important;
 }
 
 /* Card Stlying */

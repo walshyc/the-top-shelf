@@ -20,11 +20,20 @@
 
 {% block content %}
 <div class="row">
+
     <div class="col s12">
+
+        <div class="row">
+            <div class="col s12">
+                <h1 class="cyan-text">{{cocktail.cocktail_name.title()}}</h1>
+                <p class="flow-text">{{cocktail.short}}</p>
+            </div>
+
+        </div>
         <!-- Shows the name and description of the chose cocktail -->
-        <h1 class="cyan-text">{{cocktail.cocktail_name.title()}}</h1>
-        <p class="flow-text">{{cocktail.short}}</p>
+
     </div>
+
 </div>
 <div class="row">
     <div class="col s12 m6">
@@ -84,24 +93,39 @@
 {% if session['username'] == cocktail.added_by  %}
 <div class="row center-align">
 
+ 
+
     <!-- If the correct user is logged in they can edit or delete the cocktail  -->
     <div class="col s6"><a href="{{url_for('edit_cocktail', cocktail_name = cocktail.cocktail_name)}}"
-            class="card-btn cyan waves-effect waves-light btn"><i class="small material-icons left">edit</i>Edit</a>
+            class="card-btn cyan waves-effect waves-light btn">Edit</a>
     </div>
     <div class="col s6">
 
-        <a class="card-btn red accent-3 waves-effect waves-light btn modal-trigger" href="#deleteModal"><i
-                class="small material-icons left">remove_circle</i>Delete</a>
+        <a class="card-btn red accent-3 waves-effect waves-light btn modal-trigger" href="#deleteModal">Delete</a>
 
     </div>
+
+    <div class="col s12 ">
+            <!-- Back to category button -->
+            <a href="{{url_for('category_name',category_name=category.category_name)}}"
+                class="cyan waves-effect waves-light btn back-btn"><i class="material-icons left">arrow_back</i>Back</a>
+        </div>
 </div>
-{% endif %}
+{% else %}
+
 <div class="row">
-    <div class="col s12 right-align">
-        <!-- Shows the user who uploaded the cocktail -->
-        <h6>{{cocktail.cocktail_name}} was uploaded by {{cocktail.added_by.title()}}</h6>
+        <div class="col s12 left-align">
+            <!-- Back to category button -->
+            <a href="{{url_for('category_name',category_name=category.category_name)}}"
+                class="cyan waves-effect waves-light btn back-btn"><i class="material-icons left">arrow_back</i>Back</a>
+        </div>
+        <div class="col s12 right-align">
+            <!-- Shows the user who uploaded the cocktail -->
+            <h6>{{cocktail.cocktail_name}} was uploaded by {{cocktail.added_by.title()}}</h6>
+        </div>
     </div>
-</div>
+{% endif %}
+
 
 <div id="deleteModal" class="modal">
     <div class="modal-content">
@@ -111,14 +135,9 @@
     <div class="modal-footer">
         <a href="{{url_for('delete_cocktail', cocktail_name = cocktail.cocktail_name)}}"
             class="card-btn  red accent-3 waves-effect waves-light btn">Delete {{cocktail.cocktail_name.title()}}</a>
-        <a href="#"
-            class="modal-close card-btn cyan waves-effect waves-light btn">Cancel</a>
+        <a href="#" class="modal-close card-btn cyan waves-effect waves-light btn">Cancel</a>
     </div>
 </div>
 
 
 {% endblock %}
-
-
-
-
